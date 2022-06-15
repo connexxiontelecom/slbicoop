@@ -1,0 +1,27 @@
+CRITICAL - 2021-04-16 08:48:28 --> Undefined index: term
+#0 C:\xampp\htdocs\icoop\app\Controllers\LoanController.php(95): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\xampp\\htdocs...', 95, Array)
+#1 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\CodeIgniter.php(918): App\Controllers\LoanController->getCooperatorAccountStatus()
+#2 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\LoanController))
+#3 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\icoop\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#5 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(34): require_once('C:\\xampp\\htdocs...')
+#6 {main}
+CRITICAL - 2021-04-16 09:22:57 --> Undefined variable: contribution_types
+#0 C:\xampp\htdocs\icoop\app\Views\pages\financial-report\trial-balance.php(50): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 50, Array)
+#1 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\View\View.php(246): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\Common.php(1119): CodeIgniter\View\View->render('pages/financial...', Array, true)
+#3 C:\xampp\htdocs\icoop\app\Controllers\AccountingReportController.php(24): view('pages/financial...', Array)
+#4 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\CodeIgniter.php(918): App\Controllers\AccountingReportController->showTrialBalanceForm()
+#5 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AccountingReportController))
+#6 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\icoop\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#8 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(34): require_once('C:\\xampp\\htdocs...')
+#9 {main}
+CRITICAL - 2021-04-16 09:40:31 --> Undefined property: stdClass::$dr_amount
+#0 C:\xampp\htdocs\icoop\app\Controllers\AccountingReportController.php(72): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'C:\\xampp\\htdocs...', 72, Array)
+#1 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\CodeIgniter.php(918): App\Controllers\AccountingReportController->trialBalance()
+#2 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\AccountingReportController))
+#3 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\icoop\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#5 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(34): require_once('C:\\xampp\\htdocs...')
+#6 {main}

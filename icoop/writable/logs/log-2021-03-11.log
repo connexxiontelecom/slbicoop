@@ -1,0 +1,107 @@
+CRITICAL - 2021-03-11 13:08:00 --> Undefined index: type
+#0 C:\xampp\htdocs\icoop\app\Controllers\Withdraw.php(302): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\xampp\\htdocs...', 302, Array)
+#1 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\CodeIgniter.php(918): App\Controllers\Withdraw->compute_balance()
+#2 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Withdraw))
+#3 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\icoop\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#5 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(34): require_once('C:\\xampp\\htdocs...')
+#6 {main}
+CRITICAL - 2021-03-11 13:09:31 --> Undefined index: type
+#0 C:\xampp\htdocs\icoop\app\Controllers\Withdraw.php(302): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\xampp\\htdocs...', 302, Array)
+#1 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\CodeIgniter.php(918): App\Controllers\Withdraw->compute_balance()
+#2 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Withdraw))
+#3 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\icoop\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#5 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(34): require_once('C:\\xampp\\htdocs...')
+#6 {main}
+CRITICAL - 2021-03-11 13:12:48 --> Undefined index: type
+#0 C:\xampp\htdocs\icoop\app\Controllers\Withdraw.php(302): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\xampp\\htdocs...', 302, Array)
+#1 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\CodeIgniter.php(918): App\Controllers\Withdraw->compute_balance()
+#2 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Withdraw))
+#3 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\icoop\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#5 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(34): require_once('C:\\xampp\\htdocs...')
+#6 {main}
+CRITICAL - 2021-03-11 15:43:03 --> Undefined property: App\Controllers\Receipt::$jtm
+#0 C:\xampp\htdocs\icoop\app\Controllers\Receipt.php(769): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined prope...', 'C:\\xampp\\htdocs...', 769, Array)
+#1 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\CodeIgniter.php(918): App\Controllers\Receipt->new_transfer()
+#2 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Receipt))
+#3 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\icoop\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#5 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(34): require_once('C:\\xampp\\htdocs...')
+#6 {main}
+CRITICAL - 2021-03-11 16:07:45 --> Call to undefined function number_fojrmmat()
+#0 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\View\View.php(246): include()
+#1 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\Common.php(1119): CodeIgniter\View\View->render('pages/receipt/v...', Array, true)
+#2 C:\xampp\htdocs\icoop\app\Controllers\BaseController.php(61): view('pages/receipt/v...', Array)
+#3 C:\xampp\htdocs\icoop\app\Controllers\Receipt.php(904): App\Controllers\BaseController->authenticate_user('administrator@a...', 'pages/receipt/v...', Array)
+#4 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\CodeIgniter.php(918): App\Controllers\Receipt->verify_transfer()
+#5 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Receipt))
+#6 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\icoop\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#8 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(34): require_once('C:\\xampp\\htdocs...')
+#9 {main}
+CRITICAL - 2021-03-11 16:08:43 --> Undefined index: rd_type
+#0 C:\xampp\htdocs\icoop\app\Views\pages\receipt\verify_transfer.php(162): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\xampp\\htdocs...', 162, Array)
+#1 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\View\View.php(246): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\Common.php(1119): CodeIgniter\View\View->render('pages/receipt/v...', Array, true)
+#3 C:\xampp\htdocs\icoop\app\Controllers\BaseController.php(61): view('pages/receipt/v...', Array)
+#4 C:\xampp\htdocs\icoop\app\Controllers\Receipt.php(904): App\Controllers\BaseController->authenticate_user('administrator@a...', 'pages/receipt/v...', Array)
+#5 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\CodeIgniter.php(918): App\Controllers\Receipt->verify_transfer()
+#6 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Receipt))
+#7 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\icoop\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(34): require_once('C:\\xampp\\htdocs...')
+#10 {main}
+CRITICAL - 2021-03-11 16:09:16 --> Undefined index: bank_name
+#0 C:\xampp\htdocs\icoop\app\Views\pages\receipt\verify_transfer.php(278): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\xampp\\htdocs...', 278, Array)
+#1 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\View\View.php(246): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\Common.php(1119): CodeIgniter\View\View->render('pages/receipt/v...', Array, true)
+#3 C:\xampp\htdocs\icoop\app\Controllers\BaseController.php(61): view('pages/receipt/v...', Array)
+#4 C:\xampp\htdocs\icoop\app\Controllers\Receipt.php(904): App\Controllers\BaseController->authenticate_user('administrator@a...', 'pages/receipt/v...', Array)
+#5 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\CodeIgniter.php(918): App\Controllers\Receipt->verify_transfer()
+#6 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Receipt))
+#7 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\icoop\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(34): require_once('C:\\xampp\\htdocs...')
+#10 {main}
+CRITICAL - 2021-03-11 16:20:02 --> Undefined variable: rms
+#0 C:\xampp\htdocs\icoop\app\Views\pages\receipt\approve_receipt.php(48): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 48, Array)
+#1 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\View\View.php(246): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\Common.php(1119): CodeIgniter\View\View->render('pages/receipt/a...', Array, true)
+#3 C:\xampp\htdocs\icoop\app\Controllers\BaseController.php(61): view('pages/receipt/a...', Array)
+#4 C:\xampp\htdocs\icoop\app\Controllers\Receipt.php(1023): App\Controllers\BaseController->authenticate_user('administrator@a...', 'pages/receipt/a...', Array)
+#5 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\CodeIgniter.php(918): App\Controllers\Receipt->approve_transfer()
+#6 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Receipt))
+#7 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\icoop\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(34): require_once('C:\\xampp\\htdocs...')
+#10 {main}
+CRITICAL - 2021-03-11 16:27:42 --> Undefined index: glcode
+#0 C:\xampp\htdocs\icoop\app\Controllers\Receipt.php(1052): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\xampp\\htdocs...', 1052, Array)
+#1 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\CodeIgniter.php(918): App\Controllers\Receipt->approve_transfer()
+#2 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Receipt))
+#3 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\icoop\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#5 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(34): require_once('C:\\xampp\\htdocs...')
+#6 {main}
+CRITICAL - 2021-03-11 16:28:28 --> Undefined variable: ct_id
+#0 C:\xampp\htdocs\icoop\app\Controllers\Receipt.php(1072): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 1072, Array)
+#1 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\CodeIgniter.php(918): App\Controllers\Receipt->approve_transfer()
+#2 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Receipt))
+#3 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\icoop\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#5 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(34): require_once('C:\\xampp\\htdocs...')
+#6 {main}
+CRITICAL - 2021-03-11 17:21:03 --> Trying to access array offset on value of type null
+#0 C:\xampp\htdocs\icoop\app\Views\pages\cooperators\ledger.php(50): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to acces...', 'C:\\xampp\\htdocs...', 50, Array)
+#1 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\View\View.php(246): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\Common.php(1119): CodeIgniter\View\View->render('pages/cooperato...', Array, true)
+#3 C:\xampp\htdocs\icoop\app\Controllers\BaseController.php(61): view('pages/cooperato...', Array)
+#4 C:\xampp\htdocs\icoop\app\Controllers\Cooperators.php(745): App\Controllers\BaseController->authenticate_user('administrator@a...', 'pages/cooperato...', Array)
+#5 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\CodeIgniter.php(918): App\Controllers\Cooperators->ledger('12345')
+#6 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Cooperators))
+#7 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\icoop\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(34): require_once('C:\\xampp\\htdocs...')
+#10 {main}

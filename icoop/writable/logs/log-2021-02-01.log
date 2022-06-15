@@ -1,0 +1,26 @@
+CRITICAL - 2021-02-01 10:38:52 --> Unknown column 'schedule_master_details.schedule_master_id' in 'on clause'
+#0 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(331): mysqli->query('SELECT *\nFROM `...')
+#1 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\Database\BaseConnection.php(741): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\Database\BaseConnection.php(669): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1860): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\icoop\app\Models\ScheduleMasterModel.php(28): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\icoop\app\Controllers\LoanController.php(329): App\Models\ScheduleMasterModel->getSchedulePaymentDetail('6')
+#6 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\CodeIgniter.php(918): App\Controllers\LoanController->showPaymentScheduleDetail('6')
+#7 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\LoanController))
+#8 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\icoop\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(34): require_once('C:\\xampp\\htdocs...')
+#11 {main}
+CRITICAL - 2021-02-01 19:36:08 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near '' at line 5
+#0 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(331): mysqli->query('SELECT *\nFROM `...')
+#1 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\Database\BaseConnection.php(741): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\Database\BaseConnection.php(669): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1860): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\icoop\app\Models\PaymentDetailsModel.php(54): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\icoop\app\Controllers\Cooperators.php(676): App\Models\PaymentDetailsModel->get_contribution_ledger_past_year('login', NULL, NULL)
+#6 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\CodeIgniter.php(918): App\Controllers\Cooperators->ledger('login')
+#7 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Cooperators))
+#8 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\icoop\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(34): require_once('C:\\xampp\\htdocs...')
+#11 {main}

@@ -1,0 +1,29 @@
+CRITICAL - 2021-03-22 10:38:13 --> Undefined variable: data
+#0 C:\xampp\htdocs\icoop\app\Controllers\LoanController.php(552): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 552, Array)
+#1 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\CodeIgniter.php(918): App\Controllers\LoanController->get_active_loan()
+#2 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\LoanController))
+#3 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\icoop\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#5 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(34): require_once('C:\\xampp\\htdocs...')
+#6 {main}
+CRITICAL - 2021-03-22 10:38:15 --> Invalid file: pages/reconciliation/verify_loans_reconciliation.php
+#0 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\View\View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('pages/reconcili...')
+#1 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\Common.php(1119): CodeIgniter\View\View->render('pages/reconcili...', Array, true)
+#2 C:\xampp\htdocs\icoop\app\Controllers\BaseController.php(77): view('pages/reconcili...', Array)
+#3 C:\xampp\htdocs\icoop\app\Controllers\Reconciliation.php(894): App\Controllers\BaseController->authenticate_user('administrator', 'pages/reconcili...', Array)
+#4 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\CodeIgniter.php(918): App\Controllers\Reconciliation->verify_loans_reconciliation()
+#5 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Reconciliation))
+#6 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\icoop\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#8 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(34): require_once('C:\\xampp\\htdocs...')
+#9 {main}
+CRITICAL - 2021-03-22 13:58:03 -->  route cannot be found while reverse-routing.
+#0 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\HTTP\RedirectResponse.php(92): CodeIgniter\HTTP\Exceptions\HTTPException::forInvalidRedirectRoute('')
+#1 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\Common.php(845): CodeIgniter\HTTP\RedirectResponse->route(false)
+#2 C:\xampp\htdocs\icoop\app\Controllers\LoanController.php(95): redirect('home/error_404')
+#3 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\CodeIgniter.php(918): App\Controllers\LoanController->getCooperatorAccountStatus()
+#4 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\LoanController))
+#5 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#6 C:\xampp\htdocs\icoop\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#7 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(34): require_once('C:\\xampp\\htdocs...')
+#8 {main}

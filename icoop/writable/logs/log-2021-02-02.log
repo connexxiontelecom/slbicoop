@@ -1,0 +1,60 @@
+CRITICAL - 2021-02-02 11:15:26 --> Undefined variable: data
+#0 C:\xampp\htdocs\icoop\app\Controllers\Withdraw.php(115): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 115, Array)
+#1 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\CodeIgniter.php(918): App\Controllers\Withdraw->search_cooperator()
+#2 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Withdraw))
+#3 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\icoop\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#5 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(34): require_once('C:\\xampp\\htdocs...')
+#6 {main}
+CRITICAL - 2021-02-02 11:15:31 --> Undefined variable: data
+#0 C:\xampp\htdocs\icoop\app\Controllers\Withdraw.php(168): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 168, Array)
+#1 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\CodeIgniter.php(918): App\Controllers\Withdraw->get_ct()
+#2 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Withdraw))
+#3 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\icoop\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#5 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(34): require_once('C:\\xampp\\htdocs...')
+#6 {main}
+CRITICAL - 2021-02-02 13:48:07 --> Undefined index: max_withdrawal_amount 
+#0 C:\xampp\htdocs\icoop\app\Controllers\Withdraw.php(149): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\xampp\\htdocs...', 149, Array)
+#1 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\CodeIgniter.php(918): App\Controllers\Withdraw->compute_balance()
+#2 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Withdraw))
+#3 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\icoop\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#5 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(34): require_once('C:\\xampp\\htdocs...')
+#6 {main}
+CRITICAL - 2021-02-02 13:48:34 --> Undefined index: max_withdrawal_amount 
+#0 C:\xampp\htdocs\icoop\app\Controllers\Withdraw.php(149): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\xampp\\htdocs...', 149, Array)
+#1 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\CodeIgniter.php(918): App\Controllers\Withdraw->compute_balance()
+#2 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Withdraw))
+#3 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\icoop\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#5 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(34): require_once('C:\\xampp\\htdocs...')
+#6 {main}
+CRITICAL - 2021-02-02 13:51:39 --> Trying to get property 'max_withdrawal_amount' of non-object
+#0 C:\xampp\htdocs\icoop\app\Controllers\Withdraw.php(149): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Trying to get p...', 'C:\\xampp\\htdocs...', 149, Array)
+#1 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\CodeIgniter.php(918): App\Controllers\Withdraw->compute_balance()
+#2 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Withdraw))
+#3 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\icoop\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#5 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(34): require_once('C:\\xampp\\htdocs...')
+#6 {main}
+CRITICAL - 2021-02-02 14:38:38 --> Undefined variable: data
+#0 C:\xampp\htdocs\icoop\app\Controllers\Withdraw.php(176): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined varia...', 'C:\\xampp\\htdocs...', 176, Array)
+#1 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\CodeIgniter.php(918): App\Controllers\Withdraw->get_ct()
+#2 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Withdraw))
+#3 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#4 C:\xampp\htdocs\icoop\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#5 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(34): require_once('C:\\xampp\\htdocs...')
+#6 {main}
+CRITICAL - 2021-02-02 16:19:10 --> Undefined index: withdrawal_doc
+#0 C:\xampp\htdocs\icoop\app\Views\pages\withdraw\verify_withdrawal.php(129): CodeIgniter\Debug\Exceptions->errorHandler(8, 'Undefined index...', 'C:\\xampp\\htdocs...', 129, Array)
+#1 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\View\View.php(246): include('C:\\xampp\\htdocs...')
+#2 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\Common.php(1119): CodeIgniter\View\View->render('pages/withdraw/...', Array, true)
+#3 C:\xampp\htdocs\icoop\app\Controllers\BaseController.php(61): view('pages/withdraw/...', Array)
+#4 C:\xampp\htdocs\icoop\app\Controllers\Withdraw.php(357): App\Controllers\BaseController->authenticate_user('administrator@a...', 'pages/withdraw/...', Array)
+#5 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\CodeIgniter.php(918): App\Controllers\Withdraw->verify_withdrawal()
+#6 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Withdraw))
+#7 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 C:\xampp\htdocs\icoop\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#9 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(34): require_once('C:\\xampp\\htdocs...')
+#10 {main}

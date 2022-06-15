@@ -1,0 +1,11 @@
+CRITICAL - 2021-04-06 13:10:06 --> Invalid file: pages/cooperators/payroll_contribution_report.php
+#0 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\View\View.php(228): CodeIgniter\Exceptions\FrameworkException::forInvalidFile('pages/cooperato...')
+#1 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\Common.php(1119): CodeIgniter\View\View->render('pages/cooperato...', Array, true)
+#2 C:\xampp\htdocs\icoop\app\Controllers\BaseController.php(77): view('pages/cooperato...', Array)
+#3 C:\xampp\htdocs\icoop\app\Controllers\Cooperators.php(2278): App\Controllers\BaseController->authenticate_user('administrator', 'pages/cooperato...', Array)
+#4 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\CodeIgniter.php(918): App\Controllers\Cooperators->payroll_contribution_report()
+#5 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Cooperators))
+#6 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#7 C:\xampp\htdocs\icoop\public\index.php(45): CodeIgniter\CodeIgniter->run()
+#8 C:\xampp\htdocs\icoop\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(34): require_once('C:\\xampp\\htdocs...')
+#9 {main}

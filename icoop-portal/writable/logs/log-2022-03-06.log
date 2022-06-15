@@ -1,0 +1,40 @@
+CRITICAL - 2022-03-06 16:35:21 --> Uncaught Error: Call to a member function getFormatter() on null in /var/www/html/app/Config/Format.php:77
+Stack trace:
+#0 /var/www/html/vendor/codeigniter4/framework/system/API/ResponseTrait.php(404): Config\Format->getFormatter('application/jso...')
+#1 /var/www/html/vendor/codeigniter4/framework/system/API/ResponseTrait.php(134): CodeIgniter\Debug\Exceptions->format(Array)
+#2 /var/www/html/vendor/codeigniter4/framework/system/Debug/Exceptions.php(168): CodeIgniter\Debug\Exceptions->respond(Array, 404)
+#3 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(CodeIgniter\Exceptions\PageNotFoundException))
+#4 {main}
+  thrown
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2022-03-06 16:35:21 --> Uncaught Error: Call to a member function getFormatter() on null in /var/www/html/app/Config/Format.php:77
+Stack trace:
+#0 /var/www/html/vendor/codeigniter4/framework/system/API/ResponseTrait.php(404): Config\Format->getFormatter('application/jso...')
+#1 /var/www/html/vendor/codeigniter4/framework/system/API/ResponseTrait.php(134): CodeIgniter\Debug\Exceptions->format(Array)
+#2 /var/www/html/vendor/codeigniter4/framework/system/Debug/Exceptions.php(168): CodeIgniter\Debug\Exceptions->respond(Array, 404)
+#3 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(CodeIgniter\Exceptions\PageNotFoundException))
+#4 {main}
+  thrown
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2022-03-06 17:17:08 --> Uncaught Error: Call to a member function getFormatter() on null in /var/www/html/app/Config/Format.php:77
+Stack trace:
+#0 /var/www/html/vendor/codeigniter4/framework/system/API/ResponseTrait.php(404): Config\Format->getFormatter('application/jso...')
+#1 /var/www/html/vendor/codeigniter4/framework/system/API/ResponseTrait.php(134): CodeIgniter\Debug\Exceptions->format(Array)
+#2 /var/www/html/vendor/codeigniter4/framework/system/Debug/Exceptions.php(168): CodeIgniter\Debug\Exceptions->respond(Array, 404)
+#3 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(CodeIgniter\Exceptions\PageNotFoundException))
+#4 {main}
+  thrown
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}
+CRITICAL - 2022-03-06 17:17:08 --> Uncaught Error: Call to a member function getFormatter() on null in /var/www/html/app/Config/Format.php:77
+Stack trace:
+#0 /var/www/html/vendor/codeigniter4/framework/system/API/ResponseTrait.php(404): Config\Format->getFormatter('application/jso...')
+#1 /var/www/html/vendor/codeigniter4/framework/system/API/ResponseTrait.php(134): CodeIgniter\Debug\Exceptions->format(Array)
+#2 /var/www/html/vendor/codeigniter4/framework/system/Debug/Exceptions.php(168): CodeIgniter\Debug\Exceptions->respond(Array, 404)
+#3 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler(Object(CodeIgniter\Exceptions\PageNotFoundException))
+#4 {main}
+  thrown
+#0 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+#1 {main}

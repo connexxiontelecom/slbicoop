@@ -1,0 +1,24 @@
+CRITICAL - 2022-06-15 16:52:20 --> Expression #1 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'icoop.payment_details.pd_id' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+#0 /var/www/html/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(331): mysqli->query('SELECT *\nFROM `...')
+#1 /var/www/html/vendor/codeigniter4/framework/system/Database/BaseConnection.php(741): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 /var/www/html/vendor/codeigniter4/framework/system/Database/BaseConnection.php(669): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 /var/www/html/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1860): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 /var/www/html/app/Models/PaymentDetailsModel.php(35): CodeIgniter\Database\BaseBuilder->get()
+#5 /var/www/html/app/Controllers/Withdraw.php(408): App\Models\PaymentDetailsModel->get_payment_staff_id('12345')
+#6 /var/www/html/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Withdraw->get_ct()
+#7 /var/www/html/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Withdraw))
+#8 /var/www/html/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /var/www/html/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2022-06-15 16:52:59 --> Expression #1 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'icoop.payment_details.pd_id' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+#0 /var/www/html/vendor/codeigniter4/framework/system/Database/MySQLi/Connection.php(331): mysqli->query('SELECT *\nFROM `...')
+#1 /var/www/html/vendor/codeigniter4/framework/system/Database/BaseConnection.php(741): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 /var/www/html/vendor/codeigniter4/framework/system/Database/BaseConnection.php(669): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 /var/www/html/vendor/codeigniter4/framework/system/Database/BaseBuilder.php(1860): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 /var/www/html/app/Models/PaymentDetailsModel.php(35): CodeIgniter\Database\BaseBuilder->get()
+#5 /var/www/html/app/Controllers/Withdraw.php(408): App\Models\PaymentDetailsModel->get_payment_staff_id('12345')
+#6 /var/www/html/vendor/codeigniter4/framework/system/CodeIgniter.php(918): App\Controllers\Withdraw->get_ct()
+#7 /var/www/html/vendor/codeigniter4/framework/system/CodeIgniter.php(404): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Withdraw))
+#8 /var/www/html/vendor/codeigniter4/framework/system/CodeIgniter.php(312): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /var/www/html/public/index.php(45): CodeIgniter\CodeIgniter->run()
+#10 {main}

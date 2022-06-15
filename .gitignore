@@ -1,0 +1,8 @@
+./icoop/vendor
+.icoop-portal/vendor
+.env
+./icoop.sql
+./icoop/.env
+./icoop-portal/.env
+.idea/*
+.idea
