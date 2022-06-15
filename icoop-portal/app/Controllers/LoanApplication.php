@@ -1,5 +1,6 @@
 <?php
 namespace App\Controllers;
+use \DateTime;
 
 class LoanApplication extends BaseController {
 
@@ -183,12 +184,24 @@ class LoanApplication extends BaseController {
     // @TODO do all checks in here and submit loan application
     if ($loan_setup_details) {
       // check if user has been approved longer than the loan age qualification
-      $today = date_create(date('Y-m-d'));
-      $user_approved_date = date_create($this->session->get('approved_date'));
-      $months_difference = date_diff($today, $user_approved_date)->format('%m');
+    //   $today = date_create(strval(date('Y-m-d')));
+    //   $user_approved_date = date_create(strval($this->session->get('approved_date')));
+    //   $months_difference = date_diff($user_approved_date, $today)->format('%m');
+      
+      
+        $start = new DateTime($this->session->get('approved_date'));
+        $end = new DateTime(date('Y-m-d'));
+        $diff = $start->diff($end);
+        
+        $yearsInMonths = $diff->format('%r%y') * 12;
+        $months = $diff->format('%r%m');
+        $months_difference = $yearsInMonths + $months;
+      
+      
       if ($months_difference <= $loan_setup_details['age_qualification']) {
         $response_data['success'] = false;
-        $response_data['msg'] = 'You have not been a member long enough to qualify for this loan';
+        //$response_data['msg'] = 'You have not been a member long enough to apply';
+        $response_data['msg'] = $months_difference;
         return $response_data;
       }
       // check if loan duration is valid

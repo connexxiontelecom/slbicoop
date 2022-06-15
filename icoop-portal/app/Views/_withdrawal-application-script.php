@@ -86,7 +86,7 @@
         formData.append('withdrawable_amount', withdrawableAmount)
         Swal.fire({
           title: 'Are you sure?',
-          text: 'Applying for a withdrawal is irreversible',
+          text: 'Application for Withdrawal',
           icon: 'warning',
           showCancelButton: true,
           confirmButtonText: 'Confirm Withdrawal'

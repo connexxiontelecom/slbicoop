@@ -66,7 +66,7 @@ Payment Schedule (Member)
                                                             <select required name="bank" id="bank" class="form-control ">
                                                                 <option selected disabled>--Select bank--</option>
                                                                 <?php foreach($coopbank as $bank) : ?>
-                                                                    <option value="<?= $bank->bank_id ?>"><?= $bank->bank_name ?? '' ?> - (<?= $bank->account_no ?? '' ?>)</option>
+                                                                    <option value="<?= $bank->coop_bank_id ?>"><?= $bank->bank_name ?? '' ?> - (<?= $bank->account_no ?? '' ?>)</option>
                                                                 <?php endforeach; ?>
                                                             </select>
                                                         </div>

@@ -11,9 +11,9 @@
       </div>
       <div class="nk-block nk-block-middle nk-auth-body">
         <div class="brand-logo pb-4 ml-0">
-          <a href="/" class="logo-link ml-n1">
-            <img class="logo-light logo-img logo-img-lg" src="/assets/images/logo-01-2.png" srcset="./images/logo2x.png 2x" alt="logo">
-            <img class="logo-dark logo-img logo-img-lg" src="/assets/images/logo-01-2.png" srcset="./images/logo-dark2x.png 2x" alt="logo-dark">
+          <a href="/" class="logo-link ml-n5">
+            <img class="logo-light logo-img logo-img-lg" src="/assets/images/justice-logo.png" alt="logo">
+            <img class="logo-dark ml-n4" style="width: 35% !important; max-height: 1000px !important;" src="/assets/images/slb-logo.jpg" alt="logo-dark">
           </a>
         </div>
         <div class="nk-block-head">
@@ -25,11 +25,6 @@
           </div>
         </div><!-- .nk-block-head -->
         <form class="form-validate" action="<?= site_url('login')?>" method="post">
-            <?php
-             if(isset($login_eror)){
-                 echo "error";
-             }
-            ?>
           <div class="form-group">
             <div class="form-label-group">
               <label class="form-label" for="default-01">Staff ID</label>
@@ -40,7 +35,7 @@
           <div class="form-group">
             <div class="form-label-group">
               <label class="form-label" for="password">Password</label>
-              <a class="link link-primary link-sm" tabindex="-1" href="html/pages/auths/auth-reset.html">Forgot Code?</a>
+              <a class="link link-primary link-sm" tabindex="-1" href="#">Forgot Code?</a>
             </div>
             <div class="form-control-wrap">
               <a tabindex="-1" href="#" class="form-icon form-icon-right passcode-switch" data-target="password">
@@ -82,12 +77,19 @@
           </ul><!-- .nav -->
         </div>
         <div class="mt-3">
-          <p>&copy; 2021 Connexxion Telecom. All Rights Reserved.</p>
+          <p>&copy; <?=date('Y')?> Connexxion Telecom. All Rights Reserved.</p>
         </div>
       </div><!-- .nk-block -->
     </div><!-- .nk-split-content -->
-    <div class="nk-split-content nk-split-stretch bg-abstract">
-<!--    <div class="nk-split-content nk-split-stretch bg-abstract" style="background: url('/assets/images/login.jpg') no-repeat center 10px">-->
+<!--    <div class="">-->
+    <div
+      class="nk-split-content nk-split-stretch bg-abstract"
+      style="background: url('/assets/images/login-1.jpg') no-repeat center center fixed;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;"
+    >
     </div><!-- .nk-split-content -->
   </div><!-- .nk-split -->
 </div><!-- app body @e -->

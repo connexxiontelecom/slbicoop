@@ -8,7 +8,6 @@ class Auth extends BaseController {
       return redirect('/');
     }
     $page_data['page_title'] = 'Login';
-    $page_data['login_error'] = $this->session->login_error;
     return view('auth/login', $page_data);
   }
 
@@ -50,9 +49,7 @@ class Auth extends BaseController {
 		      return redirect('dashboard');
 	      }
       } else {
-          $this->session->setFlashdata('login_error', 'Invalid Login Credentials!');
-//		      print_r($this->_get_savings_types_amounts($user_data['staff_id']));
-          return redirect('auth/login');
+      	print_r('Not Found');
       }
     }
   }

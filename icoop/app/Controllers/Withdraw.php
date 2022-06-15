@@ -103,7 +103,7 @@
 											
 											$_POST['withdraw_doc'] = $file_name;
 											
-											$file->move('../uploads/withdrawals', $file_name);
+											$file->move('.uploads/withdrawals', $file_name);
 											
 											$_POST['withdraw_amount'] = (float)str_replace(',', '', $_POST['withdraw_amount']);
 											

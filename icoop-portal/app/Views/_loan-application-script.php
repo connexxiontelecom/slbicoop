@@ -237,7 +237,7 @@
         formData.set('loan_amount', formData.get('loan_amount').replace(/,/g, ''))
         Swal.fire({
           title: 'Are you sure?',
-          text: 'Applying for a loan is irreversible',
+          text: 'Application for loan',
           icon: 'warning',
           showCancelButton: true,
           confirmButtonText: 'Confirm Loan'

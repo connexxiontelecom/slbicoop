@@ -1,3 +1,7 @@
+<?php 
+use App\Models\CoaModel;
+$coa = new CoaModel();
+?>
 <?= $this->extend('layouts/master') ?>
 
 <?= $this->section('title') ?>
@@ -61,18 +65,30 @@ Chart of Accounts
                         <tr role="row" class="odd">
                             <td class="sorting_1" colspan="3"><strong style="font-size:16px; text-transform:uppercase;">Assets</strong></td>
                         </tr>
-                        <?php foreach ($charts as $report): ?>
-                            <?php if($report['account_type'] == 1 ) : ?>
-                                    <?php if($report['glcode'] != 1) : ?>
-                                        <tr role="row" class="odd <?= $report['type'] == 0 ? 'bg-secondary text-white' : '' ?>">
+                        <?php foreach ($assets_account_general as $report): ?>
+                        <tr role="row" class="odd bg-secondary text-white">
                                             <td class="text-left"><?= $a++ ?></td>
                                             <td class="sorting_1 text-left"><?= $report['glcode'] ?? '' ?></td>
                                             <td class="text-left"><?= $report['account_name'] ?? '' ?></td>
                                             <td class="text-left"><?= $report['parent_account'] ?? '' ?></td>
                                             <td class="text-left"><?= $report['type'] == 0 ? 'General' : 'Detail' ?></td>
-                                        </tr>
-                                    <?php endif ?>
-                            <?php endif; ?>
+                           </tr>
+                           
+                           <?php $detailAccounts = $coa->where(['parent_account' => $report['glcode'], 'type'=> 1])->findAll();
+                           foreach($detailAccounts as $detail):
+                           ?>
+                        
+                         <tr role="row" class="odd">
+                                            <td class="text-left"><?= $a++ ?></td>
+                                            <td class="sorting_1 text-left"><?= $detail['glcode'] ?? '' ?></td>
+                                            <td class="text-left"><?= $detail['account_name'] ?? '' ?></td>
+                                            <td class="text-left"><?= $detail['parent_account'] ?? '' ?></td>
+                                            <td class="text-left"><?= $detail['type'] == 0 ? 'General' : 'Detail' ?></td>
+                           </tr>
+                        <?php endforeach; ?>
+                        
+                        
+                           
                         <?php endforeach; ?>
                         <tr role="row" class="odd">
                             <td class="sorting_1" colspan="3"><strong style="font-size:16px; text-transform:uppercase;">Liability</strong></td>
@@ -80,6 +96,39 @@ Chart of Accounts
                          <?php
                             $b = 1;
                         ?>
+                        
+                        <?php foreach ($liability_account_general as $report): ?>
+                        <tr role="row" class="odd bg-secondary text-white">
+                                            <td class="text-left"><?= $b++ ?></td>
+                                            <td class="sorting_1 text-left"><?= $report['glcode'] ?? '' ?></td>
+                                            <td class="text-left"><?= $report['account_name'] ?? '' ?></td>
+                                            <td class="text-left"><?= $report['parent_account'] ?? '' ?></td>
+                                            <td class="text-left"><?= $report['type'] == 0 ? 'General' : 'Detail' ?></td>
+                           </tr>
+                           
+                           <?php $detailAccounts = $coa->where(['parent_account' => $report['glcode'], 'type'=> 1])->findAll();
+                           foreach($detailAccounts as $detail):
+                           ?>
+                        
+                         <tr role="row" class="odd">
+                                            <td class="text-left"><?= $b++ ?></td>
+                                            <td class="sorting_1 text-left"><?= $detail['glcode'] ?? '' ?></td>
+                                            <td class="text-left"><?= $detail['account_name'] ?? '' ?></td>
+                                            <td class="text-left"><?= $detail['parent_account'] ?? '' ?></td>
+                                            <td class="text-left"><?= $detail['type'] == 0 ? 'General' : 'Detail' ?></td>
+                           </tr>
+                        <?php endforeach; ?>
+                        
+                        
+                           
+                        <?php endforeach; ?>
+                        
+                        
+                        
+                        
+                        
+                        
+                        
                         <?php foreach ($charts as $report): ?>
                             <?php if($report['account_type'] == 2 ) : ?>
                                     <?php if($report['glcode'] != 2) : ?>
@@ -100,37 +149,66 @@ Chart of Accounts
                          <?php
                             $c = 1;
                         ?>
-                        <?php foreach ($charts as $report): ?>
-                            <?php if($report['account_type'] == 3 ) : ?>
-                                    <?php if($report['glcode'] != 3) : ?>
-                                        <tr role="row" class="odd <?= $report['type'] == 0 ? 'bg-secondary text-white' : '' ?>">
+                        
+                        <?php foreach ($equity_account_general as $report): ?>
+                        <tr role="row" class="odd bg-secondary text-white">
                                             <td class="text-left"><?= $c++ ?></td>
                                             <td class="sorting_1 text-left"><?= $report['glcode'] ?? '' ?></td>
                                             <td class="text-left"><?= $report['account_name'] ?? '' ?></td>
-                                             <td class="text-left"><?= $report['parent_account'] ?? '' ?></td>
+                                            <td class="text-left"><?= $report['parent_account'] ?? '' ?></td>
                                             <td class="text-left"><?= $report['type'] == 0 ? 'General' : 'Detail' ?></td>
-                                        </tr>
-                                    <?php endif ?>
-                            <?php endif; ?>
+                           </tr>
+                           
+                           <?php $detailAccounts = $coa->where(['parent_account' => $report['glcode'], 'type'=> 1])->findAll();
+                           foreach($detailAccounts as $detail):
+                           ?>
+                        
+                         <tr role="row" class="odd">
+                                            <td class="text-left"><?= $c++ ?></td>
+                                            <td class="sorting_1 text-left"><?= $detail['glcode'] ?? '' ?></td>
+                                            <td class="text-left"><?= $detail['account_name'] ?? '' ?></td>
+                                            <td class="text-left"><?= $detail['parent_account'] ?? '' ?></td>
+                                            <td class="text-left"><?= $detail['type'] == 0 ? 'General' : 'Detail' ?></td>
+                           </tr>
                         <?php endforeach; ?>
+                        
+                        
+                           
+                        <?php endforeach; ?>
+                        
+                        
+                        
+                      
                         <tr role="row" class="odd">
                             <td class="sorting_1" colspan="3"><strong style="font-size:16px; text-transform:uppercase;">Revenue</strong></td>
                         </tr>
                          <?php
                             $d = 1;
                         ?>
-                        <?php foreach ($charts as $report): ?>
-                            <?php if($report['account_type'] == 4 ) : ?>
-                                    <?php if($report['glcode'] != 4) : ?>
-                                        <tr role="row" class="odd <?= $report['type'] == 0 ? 'bg-secondary text-white' : '' ?>">
+                        <?php foreach ($revenue_account_general as $report): ?>
+                        <tr role="row" class="odd bg-secondary text-white">
                                             <td class="text-left"><?= $d++ ?></td>
                                             <td class="sorting_1 text-left"><?= $report['glcode'] ?? '' ?></td>
                                             <td class="text-left"><?= $report['account_name'] ?? '' ?></td>
-                                             <td class="text-left"><?= $report['parent_account'] ?? '' ?></td>
+                                            <td class="text-left"><?= $report['parent_account'] ?? '' ?></td>
                                             <td class="text-left"><?= $report['type'] == 0 ? 'General' : 'Detail' ?></td>
-                                        </tr>
-                                    <?php endif ?>
-                            <?php endif; ?>
+                           </tr>
+                           
+                           <?php $detailAccounts = $coa->where(['parent_account' => $report['glcode'], 'type'=> 1])->findAll();
+                           foreach($detailAccounts as $detail):
+                           ?>
+                        
+                         <tr role="row" class="odd">
+                                            <td class="text-left"><?= $d++ ?></td>
+                                            <td class="sorting_1 text-left"><?= $detail['glcode'] ?? '' ?></td>
+                                            <td class="text-left"><?= $detail['account_name'] ?? '' ?></td>
+                                            <td class="text-left"><?= $detail['parent_account'] ?? '' ?></td>
+                                            <td class="text-left"><?= $detail['type'] == 0 ? 'General' : 'Detail' ?></td>
+                           </tr>
+                        <?php endforeach; ?>
+                        
+                        
+                           
                         <?php endforeach; ?>
                         
                         <tr role="row" class="odd">
@@ -139,18 +217,30 @@ Chart of Accounts
                          <?php
                             $e = 1;
                         ?>
-                        <?php foreach ($charts as $report): ?>
-                            <?php if($report['account_type'] == 5 ) : ?>
-                                    <?php if($report['glcode'] != 5) : ?>
-                                        <tr role="row" class="odd <?= $report['type'] == 0 ? 'bg-secondary text-white' : '' ?>">
+                        <?php foreach ($expense_account_general as $report): ?>
+                        <tr role="row" class="odd bg-secondary text-white">
                                             <td class="text-left"><?= $e++ ?></td>
                                             <td class="sorting_1 text-left"><?= $report['glcode'] ?? '' ?></td>
                                             <td class="text-left"><?= $report['account_name'] ?? '' ?></td>
-                                             <td class="text-left"><?= $report['parent_account'] ?? '' ?></td>
+                                            <td class="text-left"><?= $report['parent_account'] ?? '' ?></td>
                                             <td class="text-left"><?= $report['type'] == 0 ? 'General' : 'Detail' ?></td>
-                                        </tr>
-                                    <?php endif ?>
-                            <?php endif; ?>
+                           </tr>
+                           
+                           <?php $detailAccounts = $coa->where(['parent_account' => $report['glcode'], 'type'=> 1])->findAll();
+                           foreach($detailAccounts as $detail):
+                           ?>
+                        
+                         <tr role="row" class="odd">
+                                            <td class="text-left"><?= $e++ ?></td>
+                                            <td class="sorting_1 text-left"><?= $detail['glcode'] ?? '' ?></td>
+                                            <td class="text-left"><?= $detail['account_name'] ?? '' ?></td>
+                                            <td class="text-left"><?= $detail['parent_account'] ?? '' ?></td>
+                                            <td class="text-left"><?= $detail['type'] == 0 ? 'General' : 'Detail' ?></td>
+                           </tr>
+                        <?php endforeach; ?>
+                        
+                        
+                           
                         <?php endforeach; ?>
                         
                     </table>

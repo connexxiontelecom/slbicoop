@@ -25,7 +25,7 @@ $session = session();
               <div class="nk-block nk-block-lg">
                 <div class="nk-block-head">
                   <div class="nk-blood-head-content">
-                    <h4 class="nk-block-title">New Loan Application Form</h4>
+                    <h4 class="nk-block-title">New Loan Application Form </h4>
                   </div>
                 </div>
                 <div class="row gy-4">

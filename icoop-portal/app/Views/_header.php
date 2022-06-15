@@ -50,7 +50,7 @@
                 <div class="user-card">
                   <div class="user-avatar">
                     <span>
-                      <?= ucfirst($session->get('firstname'))[0].''.ucfirst($session->get('lastname'))[0] ?>
+                      <?= ucfirst($session->get('firstname')).''.ucfirst($session->get('lastname')) ?>
                     </span>
                   </div>
                   <div class="user-info">
