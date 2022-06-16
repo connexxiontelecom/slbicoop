@@ -9,8 +9,8 @@
       </div>
       <div class="nk-sidebar-brand d-xl-none">
         <a href="/dashboard" class="logo-link text-center">
-          <img class="logo-light logo-img" src="/assets/images/logo-01-2.png" srcset="./images/logo2x.png 2x" alt="logo">
-          <img class="logo-dark logo-img" src="/assets/images/logo-01-2.png" srcset="./images/logo-dark2x.png 2x" alt="logo-dark">
+          <img class="logo-light logo-img" src="/assets/images/justice-logo.png" alt="logo">
+          <img class="logo-dark logo-img" src="/assets/images/slb-logo.jpg" alt="logo-dark">
           <span class="nio-version text-dark">Portal</span>
         </a>
       </div>
@@ -21,7 +21,7 @@
               <em class="icon ni ni-card-view"></em>
             </div>
             <div class="nk-news-text">
-              <p>Do you know the latest update of 2021? <span> Review all the changes we've made here</span></p>
+              <p>Do you know the latest update of 2022? <span> Review all the changes we've made here</span></p>
               <em class="icon ni ni-external"></em>
             </div>
           </a>

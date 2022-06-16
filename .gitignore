@@ -3,6 +3,6 @@
 .env
 ./icoop.sql
 ./icoop/.env
-./icoop-portal/.env
+icoop-portal-1/.env
 .idea/*
 .idea

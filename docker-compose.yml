@@ -1,20 +1,20 @@
 version: '3'
 services:
-  icoop:
-    build:
-      context: ./icoop
-      dockerfile: Dockerfile
-    volumes:
-      - ./icoop:/var/www/html/
-    depends_on:
-      - database
-    networks:
-      codeigniter_net:
-    ports:
-      - "8181:80"
-    restart: always
+#  icoop:
+#    build:
+#      context: ./icoop
+#      dockerfile: Dockerfile
+#    volumes:
+#      - ./icoop:/var/www/html/
+#    depends_on:
+#      - database
+#    networks:
+#      codeigniter_net:
+#    ports:
+#      - "8181:80"
+#    restart: always
 
-  icoopportal:
+  icoop-portal:
     build:
       context: ./icoop-portal
       dockerfile: Dockerfile
@@ -25,7 +25,7 @@ services:
     networks:
       codeigniter_net:
     ports:
-      - "8182:80"
+      - "8080:80"
     restart: always
 
   database:
@@ -34,7 +34,7 @@ services:
     networks:
       codeigniter_net:
     ports:
-      - 3306:3306
+      - '3306:3306'
     volumes:
       - ./icoop.sql:/docker-entrypoint-initdb.d/icoop.sql
     env_file:
