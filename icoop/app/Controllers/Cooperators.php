@@ -20,7 +20,7 @@ use App\Models\WithdrawModel;
 
 
 
-class Cooperators extends BaseController
+class  Cooperators extends BaseController
 {
          public function __construct(){
 
@@ -486,6 +486,15 @@ class Cooperators extends BaseController
                          'cooperator_kin_email' => $application['application_kin_email'],
                          'cooperator_kin_phone' => $application['application_kin_phone'],
                          'cooperator_kin_relationship' => $application['application_kin_relationship'],
+                         'cooperator_kin_percentage' => $application['application_kin_percentage'],
+
+                         'cooperator_kin2_fullname' => $application['application_kin2_fullname'],
+                         'cooperator_kin2_address' => $application['application_kin2_address'],
+                         'cooperator_kin2_email' => $application['application_kin2_email'],
+                         'cooperator_kin2_phone' => $application['application_kin2_phone'],
+                         'cooperator_kin2_relationship' => $application['application_kin2_relationship'],
+                         'cooperator_kin2_percentage' => $application['application_kin2_percentage'],
+
                          'cooperator_bank_id' => $application['application_bank_id'],
                          'cooperator_account_number' => $application['application_account_number'],
                          'cooperator_bank_branch' => $application['application_bank_branch'],
