@@ -20,7 +20,7 @@
 	use App\Models\CoaModel;
 	use App\Models\GlModel;
 	use App\Models\JournalTransferMasterModel;
-	use App\Models\JournalTransferdetailModel;
+	use App\Models\JournalTransferDetailModel;
 	
 
 	
@@ -45,7 +45,7 @@
 			$this->coa = new CoaModel();
 			$this->gl = new GlModel();
 			$this->jtm = new JournalTransferMasterModel();
-			$this->jtd = new JournalTransferdetailModel();
+			$this->jtd = new JournalTransferDetailModel();
 			
 			
 		}

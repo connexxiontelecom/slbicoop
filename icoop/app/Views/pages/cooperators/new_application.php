@@ -170,6 +170,7 @@
                     </fieldset>
                     <h3>Next Of Kin</h3>
                     <fieldset>
+                        <h4> 1 </h4>
                         <div class="row clearfix">
 
                             <div class="col-lg-6 col-md-12">
@@ -204,11 +205,65 @@
                                 </div>
                             </div>
 
-                            <div class="col-md-12">
+                            <div class="col-lg-6 col-md-12">
+
+                                <div class="form-group">
+                                    <label for="application_address"><b>Percentage*:</b></label>
+                                    <input type="number" step="any" name="application_kin_percentage" id="application_kin_percentage" placeholder="percentage *" onautocomplete="preview_form('application_kin_percentage')" onkeyup="preview_form('application_kin_percentage')" class="form-control">
+                                </div>
 
                                 <div class="form-group">
                                     <label for="application_address"><b>Address*:</b></label>
                                     <textarea name="application_kin_address" id="application_kin_address"  cols="30" rows="3" placeholder="Address *" onautocomplete="preview_form('application_kin_address')" onkeyup="preview_form('application_kin_address')" class="form-control no-resize"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                            <hr>
+                        <h4> 2 </h4>
+                        <div class="row clearfix">
+
+                            <div class="col-lg-6 col-md-12">
+                                <div class="form-group">
+                                    <label for="application_kin2_fullname"><b>Full Name:</b></label>
+                                    <input type="text" name="application_kin2_fullname" id="application_kin2_fullname" placeholder="Full Name" onautocomplete="preview_form('application_kin2_fullname')" onkeyup="preview_form('application_kin2_fullname')" class="form-control">
+                                </div>
+
+                                <div class="form-group">
+
+                                    <label  for="application_kin_relationship"> <b> Relationship: </b></label>
+
+                                    <select class="custom-select" required name="application_kin2_relationship" id="application_kin2_relationship" onfocus="preview_form('application_kin2_relationship')" onchange="preview_form('application_kin2_relationship')">
+
+
+                                            <option value="sibling"> Sibling </option>
+                                            <option value="spouse">Spouse</option>
+
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 col-md-12">
+                                <div class="form-group">
+                                    <label for="application_kin2_fullname"><b>Email:</b></label>
+                                    <input type="email" name="application_kin2_fullname" id="application_kin2_email" placeholder="Full name *" onautocomplete="preview_form('application_kin2_fullname')" onkeyup="preview_form('application_kin_fullname')" class="form-control">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="application_kin_fullname"><b>Telephone:</b></label>
+                                    <input type="text" name="application_kin2_phone" id="application_kin_phone" placeholder="Phone Number" onautocomplete="preview_form('application_kin2_phone')" onkeyup="preview_form('application_kin2_phone')" class="form-control">
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 col-md-12">
+
+                                <div class="form-group">
+                                    <label for="application_address"><b>Percentage*:</b></label>
+                                    <input type="number" step="any" name="application_kin2_percentage" id="application_kin2_percentage" placeholder="percentage *" onautocomplete="preview_form('application_kin2_percentage')" onkeyup="preview_form('application_kin2_percentage')" class="form-control">
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="application_address"><b>Address*:</b></label>
+                                    <textarea name="application_kin_address" id="application_kin2_address"  cols="30" rows="3" placeholder="Address *" onautocomplete="preview_form('application_kin2_address')" onkeyup="preview_form('application_kin2_address')" class="form-control no-resize"></textarea>
                                 </div>
                             </div>
                         </div>

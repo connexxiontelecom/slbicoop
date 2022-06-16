@@ -77,13 +77,13 @@ Payment Schedule
                                 <table class="table table-bordered">
                                     <tbody>
                                         <tr>
-                                            <td>S/No</td>
-                                            <td>Name</td>
-                                            <td>Payment Type</td>
-                                            <td>Bank Name</td>
-                                            <td>Account No.</td>
-                                            <td>Amount</td>
-                                            <td>Action</td>
+                                            <td><b>S/No</b></td>
+                                            <td><b>Name</b></td>
+                                            <td><b>Payment Type</b></td>
+                                            <td><b>Bank Name</b></td>
+                                            <td><b>Account No.</b></td>
+                                            <td><b>Amount</b></td>
+                                            <td><b>Action</b></td>
                                         </tr>
 										
 										
@@ -106,7 +106,8 @@ Payment Schedule
 														<?= csrf_field() ?>
 														<input type="hidden" name="detail_id" value="<?=$withdraw['detail_id']; ?>">
 														<input type="hidden" name="master_id" value="<?=$withdraw['master_id']; ?>">
-														<button class="btn btn-danger btn-sm" type="submit" >Return Schedule</button>
+														<button class="btn btn-danger btn-sm" type="submit" ><i class="fa fa-trash" aria-hidden="true"></i>
+</button>
 													</form>
 													
 												
@@ -131,7 +132,8 @@ Payment Schedule
 														<?= csrf_field() ?>
 														<input type="hidden" name="detail_id" value="<?=$loan['detail_id']; ?>">
 														<input type="hidden" name="master_id" value="<?=$loan['master_id']; ?>">
-														<button class="btn btn-danger btn-sm" type="submit" >Return Schedule</button>
+															<button class="btn btn-danger btn-sm" type="submit" ><i class="fa fa-trash" aria-hidden="true"></i>
+</button>
 													</form>
 												
 												

@@ -14,9 +14,18 @@ class Cooperators extends \CodeIgniter\Model
 
         'cooperator_department_id', 'cooperator_location_id', 'cooperator_payroll_group_id', 'cooperator_dob', 'cooperator_email',
 
-        'cooperator_address', 'cooperator_city', 'cooperator_state_id', 'cooperator_telephone', 'cooperator_kin_fullname', 'cooperator_kin_address',
+        'cooperator_address', 'cooperator_city', 'cooperator_state_id', 'cooperator_telephone',
 
-        'cooperator_kin_email', 'cooperator_kin_phone', 'cooperator_kin_relationship', 'cooperator_bank_id', 'cooperator_account_number',
+        'cooperator_kin_fullname', 'cooperator_kin_address',
+
+        'cooperator_kin_email', 'cooperator_kin_phone', 'cooperator_kin_relationship', 'cooperator_kin_percentage',
+
+        'cooperator_kin2_fullname', 'cooperator_kin2_address',
+
+        'cooperator_kin2_email', 'cooperator_kin2_phone', 'cooperator_kin2_relationship', 'cooperator_kin2_percentage',
+
+
+        'cooperator_bank_id', 'cooperator_account_number',
 
         'cooperator_bank_branch', 'cooperator_sort_code', 'cooperator_date', 'cooperator_savings', 'cooperator_verify_by', 'cooperator_verify_date', 'cooperator_verify_comment', 'cooperator_approved_by',
 

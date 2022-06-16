@@ -10,6 +10,12 @@ class ChartOfAccountController extends BaseController
 	public function index()
 	{
         $data['charts'] = $this->coa->findAll();
+        
+        $data['assets_account_general'] = $this->coa->where(['account_type' => 1, 'type'=> 0])->findAll();
+        $data['liability_account_general'] = $this->coa->where(['account_type' => 2, 'type'=> 0])->findAll();
+        $data['equity_account_general'] = $this->coa->where(['account_type' => 3, 'type'=> 0])->findAll();
+        $data['revenue_account_general'] = $this->coa->where(['account_type' => 4, 'type'=> 0])->findAll();
+        $data['expense_account_general'] = $this->coa->where(['account_type' => 5, 'type'=> 0])->findAll();
         $username = $this->session->user_username;
         $this->authenticate_user($username, 'pages/coa/index',$data);
     }
@@ -48,7 +54,19 @@ class ChartOfAccountController extends BaseController
             ],
         ]; 
     }
-        $data = array(
+    
+    $checkAccount = $this->coa->where(['glcode' => $this->request->getVar('gl_code') ])->findAll();
+    
+    if(!empty($checkAccount)){
+        $alert = array(
+                    'msg' => 'Account Already Exists',
+                    'type' => 'error',
+                    'location' => site_url('/add-new-chart-of-account')
+                );
+            return view('pages/sweet-alert', $alert);
+        
+    }else{
+       $data = array(
             'account_name'=>$this->request->getVar('account_name'),
             'account_type'=>$this->request->getVar('account_type'),
             'bank'=>$this->request->getVar('bank'),
@@ -68,7 +86,10 @@ class ChartOfAccountController extends BaseController
             return view('pages/sweet-alert', $alert);
         }catch(Exception $ex){
             print_r($ex);
-        }
+        } 
+        
+    }
+        
     }
 
 }
