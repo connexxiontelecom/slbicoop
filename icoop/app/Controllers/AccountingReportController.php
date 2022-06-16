@@ -11,8 +11,6 @@ class AccountingReportController extends BaseController
         $this->session = session();
         $this->coopBank = new CoopBankModel();
     }
-	
-	
 	public function showTrialBalanceForm(){
 		//$data['accounts'] = $this->coa->where(['type'=> 0])->findAll(); //0=general; 1=detail
 		$data = [];
