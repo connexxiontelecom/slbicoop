@@ -3,13 +3,13 @@
 ?>
 <!DOCTYPE html>
 <html lang="en" class="js">
-  <?php include('_head.php')?>
+  <?php include('_head.php') ?>
   <body class="nk-body npc-crypto bg-white has-sidebar">
     <div class="nk-app-root">
       <div class="nk-main">
-        <?php include('_sidebar.php')?>
+        <?php include('_sidebar.php') ?>
         <div class="nk-wrap">
-          <?php include('_header.php')?>
+          <?php include('_header.php') ?>
           <div class="nk-content nk-content-fluid">
             <div class="container-xl wide-lg">
               <div class="nk-block-head">
@@ -253,10 +253,10 @@
             </div>
           </div>
           <!-- content @e -->
-          <?php include('_footer.php')?>
+          <?php include('_footer.php') ?>
         </div>
       </div>
     </div>
-    <?php include('_scripts.php')?>
+    <?php include('_scripts.php') ?>
   </body>
 </html>

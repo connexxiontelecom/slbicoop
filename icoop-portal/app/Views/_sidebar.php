@@ -6,9 +6,9 @@
   <div class="nk-sidebar-element nk-sidebar-head">
     <div class="nk-sidebar-brand">
       <a href="/dashboard" class="logo-link text-center">
-        <img class="logo-light logo-img" src="/assets/images/logo-01-2.png" srcset="./images/logo2x.png 2x" alt="logo">
-        <img class="logo-dark logo-img" src="/assets/images/logo-01-2.png" srcset="./images/logo-dark2x.png 2x" alt="logo-dark">
-        <span class="nio-version text-dark">Portal</span>
+        <img class="logo-light logo-img" src="/assets/images/justice-logo.png" alt="logo">
+        <img class="logo-dark logo-img" src="/assets/images/slb-logo.jpg" alt="logo-dark">
+<!--        <span class="nio-version text-dark">Portal</span>-->
       </a>
     </div>
     <div class="nk-menu-trigger mr-n2">
@@ -149,6 +149,9 @@
                 </li>
                 <li class="nk-menu-item">
                   <a href="/savings-variation" class="nk-menu-link"><span class="nk-menu-text">Savings Variation</span></a>
+                </li>
+                <li class="nk-menu-item">
+                  <a href="/deposit-lodgement" class="nk-menu-link"><span class="nk-menu-text">Deposits/Lodgement</span></a>
                 </li>
                 <li class="nk-menu-item">
                   <a href="#" class="nk-menu-link"><span class="nk-menu-text">Closure Form</span></a>

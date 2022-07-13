@@ -1,9 +1,11 @@
 <?php
+
 namespace App\Controllers;
 
 use App\Models\AccountClosureModel;
 use App\Models\BankModel;
 use App\Models\ContributionTypeModel;
+use App\Models\CoopBankModel;
 use App\Models\CooperatorModel;
 use App\Models\DepartmentModel;
 use App\Models\LoanApplicationModel;
@@ -15,6 +17,8 @@ use App\Models\NotificationModel;
 use App\Models\PaymentDetailModel;
 use App\Models\PayrollGroupModel;
 use App\Models\PolicyConfigModel;
+use App\Models\ReceiptDetailModel;
+use App\Models\ReceiptMasterModel;
 use App\Models\StateModel;
 use App\Models\WithdrawModel;
 
@@ -34,57 +38,60 @@ use Psr\Log\LoggerInterface;
  *
  * For security be sure to declare any new methods as protected or private.
  */
-
 class BaseController extends Controller
 {
-	/**
-	 * An array of helpers to be loaded automatically upon
-	 * class instantiation. These helpers will be available
-	 * to all other controllers that extend BaseController.
-	 *
-	 * @var array
-	 */
-	protected $helpers = ['form', 'url', 'date'];
-	protected $session;
+  /**
+   * An array of helpers to be loaded automatically upon
+   * class instantiation. These helpers will be available
+   * to all other controllers that extend BaseController.
+   *
+   * @var array
+   */
+  protected $helpers = ['form', 'url', 'date'];
+  protected $session;
 
-	protected $accountClosureModel;
-	protected $bankModel;
-	protected $contributionTypeModel;
-	protected $cooperatorModel;
-	protected $departmentModel;
-	protected $loanApplicationModel;
-	protected $loanGuarantorModel;
-	protected $loanModel;
-	protected $loanSetupModel;
-	protected $locationModel;
-	protected $notificationModel;
-	protected $paymentDetailModel;
-	protected $payrollGroupModel;
-	protected $policyConfigModel;
-	protected $stateModel;
-	protected $withdrawModel;
+  protected $accountClosureModel;
+  protected $bankModel;
+  protected $contributionTypeModel;
+  protected $coopBankModel;
+  protected $cooperatorModel;
+  protected $departmentModel;
+  protected $loanApplicationModel;
+  protected $loanGuarantorModel;
+  protected $loanModel;
+  protected $loanSetupModel;
+  protected $locationModel;
+  protected $notificationModel;
+  protected $paymentDetailModel;
+  protected $payrollGroupModel;
+  protected $policyConfigModel;
+  protected $receiptDetailModel;
+  protected $receiptMasterModel;
+  protected $stateModel;
+  protected $withdrawModel;
 
-	/**
-	 * Constructor.
-	 *
-	 * @param RequestInterface  $request
-	 * @param ResponseInterface $response
-	 * @param LoggerInterface   $logger
-	 */
-	public function initController(RequestInterface $request, ResponseInterface $response, LoggerInterface $logger)
-	{
-		// Do Not Edit This Line
-		parent::initController($request, $response, $logger);
+  /**
+   * Constructor.
+   *
+   * @param RequestInterface $request
+   * @param ResponseInterface $response
+   * @param LoggerInterface $logger
+   */
+  public function initController(RequestInterface $request, ResponseInterface $response, LoggerInterface $logger)
+  {
+    // Do Not Edit This Line
+    parent::initController($request, $response, $logger);
 
-		//--------------------------------------------------------------------
-		// Preload any models, libraries, etc, here.
-		//--------------------------------------------------------------------
+    //--------------------------------------------------------------------
+    // Preload any models, libraries, etc, here.
+    //--------------------------------------------------------------------
     // libraries
     $this->session = \CodeIgniter\Config\Services::session();
     // models
     $this->accountClosureModel = new AccountClosureModel();
-		$this->bankModel = new BankModel();
-		$this->contributionTypeModel = new ContributionTypeModel();
+    $this->bankModel = new BankModel();
+    $this->contributionTypeModel = new ContributionTypeModel();
+    $this->coopBankModel = new CoopBankModel();
     $this->cooperatorModel = new CooperatorModel();
     $this->departmentModel = new DepartmentModel();
     $this->loanApplicationModel = new LoanApplicationModel();
@@ -95,14 +102,17 @@ class BaseController extends Controller
     $this->notificationModel = new NotificationModel();
     $this->paymentDetailModel = new PaymentDetailModel();
     $this->payrollGroupModel = new PayrollGroupModel();
-    $this->policyConfigModel =new PolicyConfigModel();
+    $this->policyConfigModel = new PolicyConfigModel();
+    $this->receiptDetailModel = new ReceiptDetailModel();
+    $this->receiptMasterModel = new ReceiptMasterModel();
     $this->stateModel = new StateModel();
     $this->withdrawModel = new WithdrawModel();
-	}
+  }
 
-	// calculate the difference between total credits and total debits for all payments in the regular savings type
+  // calculate the difference between total credits and total debits for all payments in the regular savings type
   // to determine the total regular savings amount
-  protected function _get_regular_savings_amount($staff_id): int {
+  protected function _get_regular_savings_amount($staff_id): int
+  {
     $regular_savings_contribution_type = $this->contributionTypeModel->where('contribution_type_regular', 1)->first();
     $regular_savings_payment_details = $this->paymentDetailModel->get_all_payment_details_by_id($staff_id, $regular_savings_contribution_type['contribution_type_id']);
     $total_dr = 0;
@@ -114,18 +124,20 @@ class BaseController extends Controller
     return $total_cr - $total_dr;
   }
 
-  protected function _get_savings_types($staff_id): array {
+  protected function _get_savings_types($staff_id): array
+  {
     $payment_details = $this->paymentDetailModel->get_payment_details_by_staff_id($staff_id);
     $savings_types = array();
-    foreach($payment_details as $payment_detail) {
+    foreach ($payment_details as $payment_detail) {
       $savings_type = $this->contributionTypeModel->where('contribution_type_id', $payment_detail->pd_ct_id)->first();
       array_push($savings_types, $savings_type);
     }
     return $savings_types;
   }
 
-  protected function _create_new_notification($type, $topic, $receiver_id, $details) {
-	  $notification_data = array();
+  protected function _create_new_notification($type, $topic, $receiver_id, $details)
+  {
+    $notification_data = array();
     $notification_data['type'] = $type;
     $notification_data['topic'] = $topic;
     $notification_data['receiver_id'] = $receiver_id;
@@ -133,8 +145,9 @@ class BaseController extends Controller
     $this->notificationModel->save($notification_data);
   }
 
-  protected function _get_user_loans($paid_back): array {
-	  $staff_id = $this->session->get('staff_id');
+  protected function _get_user_loans($paid_back): array
+  {
+    $staff_id = $this->session->get('staff_id');
     $cooperator_loans = $this->loanModel->where('staff_id', $staff_id)->findAll();
     $loans = array();
     $i = 0;
@@ -148,14 +161,14 @@ class BaseController extends Controller
           foreach ($cooperator_loan_details as $cooperator_loan_detail) {
             $cooperator_loan_detail->lr_dctype == 1 ? $total_cr += $cooperator_loan_detail->lr_amount : 0;
             $cooperator_loan_detail->lr_dctype == 2 ? $total_dr += $cooperator_loan_detail->lr_amount : 0;
-            $cooperator_loan_detail->lr_interest == 1 ? $total_interest += $cooperator_loan_detail->lr_amount: 0;
+            $cooperator_loan_detail->lr_interest == 1 ? $total_interest += $cooperator_loan_detail->lr_amount : 0;
           }
         }
         $loans[$i] = array(
           'loan_id' => $cooperator_loan_details[0]->loan_id,
           'loan_type' => $cooperator_loan_details[0]->loan_description,
           'loan_principal' => $cooperator_loan_details[0]->amount,
-          'total_interest' =>$total_interest,
+          'total_interest' => $total_interest,
           'total_dr' => $total_dr,
           'total_cr' => $total_cr,
           'loan_balance' => $cooperator_loan_details[0]->amount + ($total_dr - $total_cr),
@@ -166,7 +179,8 @@ class BaseController extends Controller
     return $loans;
   }
 
-  protected function _get_user_loan_details($loan_id) {
+  protected function _get_user_loan_details($loan_id)
+  {
     $staff_id = $this->session->get('staff_id');
     $loan_details = array();
     $cooperator_loan_details = $this->loanModel->get_cooperator_loans_by_staff_id_loan_id($staff_id, $loan_id);
