@@ -13,7 +13,7 @@ namespace App\Models;
  * 5 = external savings
  * 6 = reconciliation
  * 7 = account closure
- *
+ * 8 = Phone Bills
  */
 
 
@@ -21,7 +21,14 @@ class PaymentDetailsModel extends \CodeIgniter\Model
 {
     protected $table = 'payment_details';
     protected $primaryKey = 'pd_id';
-    protected $allowedFields = ['pd_id', 'pd_staff_id',	'pd_transaction_date',	'pd_narration', 'pd_amount', 'pd_payment_type', 'pd_drcrtype', 'pd_ct_id', 'pd_pg_id', 'pd_ref_code', 'pd_month', 'pd_year'];
+    protected $allowedFields = ['pd_id', 'pd_staff_id',	'pd_transaction_date',	'pd_narration', 'pd_amount', 'pd_payment_type', 'pd_drcrtype', 'pd_ct_id', 'pd_pg_id', 'pd_ref_code', 'pd_month', 'pd_year',
+        'pd_upload_date',
+
+        'pd_upload_by',
+
+        'pd_processed_date',
+
+        'pd_processed_by' ];
 
     public function get_payment_staff_id($staff_id){
         $builder = $this->db->table('payment_details');

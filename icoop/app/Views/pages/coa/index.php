@@ -1,30 +1,30 @@
-<?php 
+<?php
 use App\Models\CoaModel;
 $coa = new CoaModel();
 ?>
 <?= $this->extend('layouts/master') ?>
 
 <?= $this->section('title') ?>
-Chart of Accounts 
+Chart of Accounts
 <?= $this->endSection() ?>
 
 <?= $this->section('current_page') ?>
-Chart of Accounts 
+Chart of Accounts
 <?= $this->endSection() ?>
 <?= $this->section('page_crumb') ?>
 Chart of Accounts
 <?= $this->endSection() ?>
 
 <?= $this->section('extra-styles') ?>
-    <style>
-        td.details-control {
-            background: url('assets/images/details_open.png') no-repeat center center;
-            cursor: pointer;
-        }
-        tr.shown td.details-control {
-            background: url('assets/images/details_close.png') no-repeat center center;
-        }
-    </style>
+<style>
+    td.details-control {
+        background: url('assets/images/details_open.png') no-repeat center center;
+        cursor: pointer;
+    }
+    tr.shown td.details-control {
+        background: url('assets/images/details_close.png') no-repeat center center;
+    }
+</style>
 
 
 <link rel="stylesheet" href="assets/vendor/jquery-datatable/dataTables.bootstrap4.min.css">
@@ -39,7 +39,7 @@ Chart of Accounts
 <?= $this->section('content') ?>
 
 <div class="row clearfix">
-    
+
     <div class="col-lg-12">
         <div class="card">
             <div class="header">
@@ -47,7 +47,7 @@ Chart of Accounts
             </div>
             <a href="<?= site_url('/add-new-chart-of-account') ?>" class="btn btn-sm btn-primary float-right mb-3">Add New Account</a>
             <div class="body">
-            <div class="col-xs-12 col-sm-12">
+                <div class="col-xs-12 col-sm-12">
                     <table id="complex-header" class="table table-bordered nowrap dataTable" role="grid" aria-describedby="complex-header_info" style="width: 100%; margin:0px auto;">
                         <thead>
                         <tr role="row">
@@ -60,189 +60,176 @@ Chart of Accounts
                         </thead>
                         <tbody>
                         <?php
-                            $a = 1;
+                        $a = 1;
                         ?>
                         <tr role="row" class="odd">
                             <td class="sorting_1" colspan="3"><strong style="font-size:16px; text-transform:uppercase;">Assets</strong></td>
                         </tr>
                         <?php foreach ($assets_account_general as $report): ?>
-                        <tr role="row" class="odd bg-secondary text-white">
-                                            <td class="text-left"><?= $a++ ?></td>
-                                            <td class="sorting_1 text-left"><?= $report['glcode'] ?? '' ?></td>
-                                            <td class="text-left"><?= $report['account_name'] ?? '' ?></td>
-                                            <td class="text-left"><?= $report['parent_account'] ?? '' ?></td>
-                                            <td class="text-left"><?= $report['type'] == 0 ? 'General' : 'Detail' ?></td>
-                           </tr>
-                           
-                           <?php $detailAccounts = $coa->where(['parent_account' => $report['glcode'], 'type'=> 1])->findAll();
-                           foreach($detailAccounts as $detail):
-                           ?>
-                        
-                         <tr role="row" class="odd">
-                                            <td class="text-left"><?= $a++ ?></td>
-                                            <td class="sorting_1 text-left"><?= $detail['glcode'] ?? '' ?></td>
-                                            <td class="text-left"><?= $detail['account_name'] ?? '' ?></td>
-                                            <td class="text-left"><?= $detail['parent_account'] ?? '' ?></td>
-                                            <td class="text-left"><?= $detail['type'] == 0 ? 'General' : 'Detail' ?></td>
-                           </tr>
-                        <?php endforeach; ?>
-                        
-                        
-                           
+                            <tr role="row" class="odd bg-secondary text-white">
+                                <td class="text-left"><?= $a++ ?></td>
+                                <td class="sorting_1 text-left"><?= $report['glcode'] ?? '' ?></td>
+                                <td class="text-left"><?= $report['account_name'] ?? '' ?></td>
+                                <td class="text-left"><?= $report['parent_account'] ?? '' ?></td>
+                                <td class="text-left"><?= $report['type'] == 0 ? 'General' : 'Detail' ?></td>
+                            </tr>
+
+                            <?php $detailAccounts = $coa->where(['parent_account' => $report['glcode'], 'type'=> 1])->findAll();
+                            foreach($detailAccounts as $detail):
+                                ?>
+
+                                <tr role="row" class="odd">
+                                    <td class="text-left"><?= $a++ ?></td>
+                                    <td class="sorting_1 text-left"><?= $detail['glcode'] ?? '' ?></td>
+                                    <td class="text-left"><?= $detail['account_name'] ?? '' ?></td>
+                                    <td class="text-left"><?= $detail['parent_account'] ?? '' ?></td>
+                                    <td class="text-left"><?= $detail['type'] == 0 ? 'General' : 'Detail' ?></td>
+                                </tr>
+                            <?php endforeach; ?>
+
+
+
                         <?php endforeach; ?>
                         <tr role="row" class="odd">
                             <td class="sorting_1" colspan="3"><strong style="font-size:16px; text-transform:uppercase;">Liability</strong></td>
                         </tr>
-                         <?php
-                            $b = 1;
+                        <?php
+                        $b = 1;
                         ?>
-                        
+
                         <?php foreach ($liability_account_general as $report): ?>
-                        <tr role="row" class="odd bg-secondary text-white">
-                                            <td class="text-left"><?= $b++ ?></td>
-                                            <td class="sorting_1 text-left"><?= $report['glcode'] ?? '' ?></td>
-                                            <td class="text-left"><?= $report['account_name'] ?? '' ?></td>
-                                            <td class="text-left"><?= $report['parent_account'] ?? '' ?></td>
-                                            <td class="text-left"><?= $report['type'] == 0 ? 'General' : 'Detail' ?></td>
-                           </tr>
-                           
-                           <?php $detailAccounts = $coa->where(['parent_account' => $report['glcode'], 'type'=> 1])->findAll();
-                           foreach($detailAccounts as $detail):
-                           ?>
-                        
-                         <tr role="row" class="odd">
-                                            <td class="text-left"><?= $b++ ?></td>
-                                            <td class="sorting_1 text-left"><?= $detail['glcode'] ?? '' ?></td>
-                                            <td class="text-left"><?= $detail['account_name'] ?? '' ?></td>
-                                            <td class="text-left"><?= $detail['parent_account'] ?? '' ?></td>
-                                            <td class="text-left"><?= $detail['type'] == 0 ? 'General' : 'Detail' ?></td>
-                           </tr>
+                            <tr role="row" class="odd bg-secondary text-white">
+                                <td class="text-left"><?= $b++ ?></td>
+                                <td class="sorting_1 text-left"><?= $report['glcode'] ?? '' ?></td>
+                                <td class="text-left"><?= $report['account_name'] ?? '' ?></td>
+                                <td class="text-left"><?= $report['parent_account'] ?? '' ?></td>
+                                <td class="text-left"><?= $report['type'] == 0 ? 'General' : 'Detail' ?></td>
+                            </tr>
+
+                            <?php $detailAccounts = $coa->where(['parent_account' => $report['glcode'], 'type'=> 1])->findAll();
+                            foreach($detailAccounts as $detail):
+                                ?>
+
+                                <tr role="row" class="odd">
+                                    <td class="text-left"><?= $b++ ?></td>
+                                    <td class="sorting_1 text-left"><?= $detail['glcode'] ?? '' ?></td>
+                                    <td class="text-left"><?= $detail['account_name'] ?? '' ?></td>
+                                    <td class="text-left"><?= $detail['parent_account'] ?? '' ?></td>
+                                    <td class="text-left"><?= $detail['type'] == 0 ? 'General' : 'Detail' ?></td>
+                                </tr>
+                            <?php endforeach; ?>
+
+
+
                         <?php endforeach; ?>
-                        
-                        
-                           
-                        <?php endforeach; ?>
-                        
-                        
-                        
-                        
-                        
-                        
-                        
-                        <?php foreach ($charts as $report): ?>
-                            <?php if($report['account_type'] == 2 ) : ?>
-                                    <?php if($report['glcode'] != 2) : ?>
-                                        <tr role="row" class="odd <?= $report['type'] == 0 ? 'bg-secondary text-white' : '' ?>">
-                                            <td class="text-left"><?= $b++ ?></td>
-                                            <td class="sorting_1 text-left"><?= $report['glcode'] ?? '' ?></td>
-                                            <td class="text-left"><?= $report['account_name'] ?? '' ?></td>
-                                             <td class="text-left"><?= $report['parent_account'] ?? '' ?></td>
-                                            <td class="text-left"><?= $report['type'] == 0 ? 'General' : 'Detail' ?></td>
-                                        </tr>
-                                    <?php endif ?>
-                            <?php endif; ?>
-                        <?php endforeach; ?>
-                        
+
+
+
+
+
+
+
+
                         <tr role="row" class="odd">
                             <td class="sorting_1" colspan="3"><strong style="font-size:16px; text-transform:uppercase;">Equity</strong></td>
                         </tr>
-                         <?php
-                            $c = 1;
+                        <?php
+                        $c = 1;
                         ?>
-                        
+
                         <?php foreach ($equity_account_general as $report): ?>
-                        <tr role="row" class="odd bg-secondary text-white">
-                                            <td class="text-left"><?= $c++ ?></td>
-                                            <td class="sorting_1 text-left"><?= $report['glcode'] ?? '' ?></td>
-                                            <td class="text-left"><?= $report['account_name'] ?? '' ?></td>
-                                            <td class="text-left"><?= $report['parent_account'] ?? '' ?></td>
-                                            <td class="text-left"><?= $report['type'] == 0 ? 'General' : 'Detail' ?></td>
-                           </tr>
-                           
-                           <?php $detailAccounts = $coa->where(['parent_account' => $report['glcode'], 'type'=> 1])->findAll();
-                           foreach($detailAccounts as $detail):
-                           ?>
-                        
-                         <tr role="row" class="odd">
-                                            <td class="text-left"><?= $c++ ?></td>
-                                            <td class="sorting_1 text-left"><?= $detail['glcode'] ?? '' ?></td>
-                                            <td class="text-left"><?= $detail['account_name'] ?? '' ?></td>
-                                            <td class="text-left"><?= $detail['parent_account'] ?? '' ?></td>
-                                            <td class="text-left"><?= $detail['type'] == 0 ? 'General' : 'Detail' ?></td>
-                           </tr>
+                            <tr role="row" class="odd bg-secondary text-white">
+                                <td class="text-left"><?= $c++ ?></td>
+                                <td class="sorting_1 text-left"><?= $report['glcode'] ?? '' ?></td>
+                                <td class="text-left"><?= $report['account_name'] ?? '' ?></td>
+                                <td class="text-left"><?= $report['parent_account'] ?? '' ?></td>
+                                <td class="text-left"><?= $report['type'] == 0 ? 'General' : 'Detail' ?></td>
+                            </tr>
+
+                            <?php $detailAccounts = $coa->where(['parent_account' => $report['glcode'], 'type'=> 1])->findAll();
+                            foreach($detailAccounts as $detail):
+                                ?>
+
+                                <tr role="row" class="odd">
+                                    <td class="text-left"><?= $c++ ?></td>
+                                    <td class="sorting_1 text-left"><?= $detail['glcode'] ?? '' ?></td>
+                                    <td class="text-left"><?= $detail['account_name'] ?? '' ?></td>
+                                    <td class="text-left"><?= $detail['parent_account'] ?? '' ?></td>
+                                    <td class="text-left"><?= $detail['type'] == 0 ? 'General' : 'Detail' ?></td>
+                                </tr>
+                            <?php endforeach; ?>
+
+
+
                         <?php endforeach; ?>
-                        
-                        
-                           
-                        <?php endforeach; ?>
-                        
-                        
-                        
-                      
+
+
+
+
                         <tr role="row" class="odd">
                             <td class="sorting_1" colspan="3"><strong style="font-size:16px; text-transform:uppercase;">Revenue</strong></td>
                         </tr>
-                         <?php
-                            $d = 1;
+                        <?php
+                        $d = 1;
                         ?>
                         <?php foreach ($revenue_account_general as $report): ?>
-                        <tr role="row" class="odd bg-secondary text-white">
-                                            <td class="text-left"><?= $d++ ?></td>
-                                            <td class="sorting_1 text-left"><?= $report['glcode'] ?? '' ?></td>
-                                            <td class="text-left"><?= $report['account_name'] ?? '' ?></td>
-                                            <td class="text-left"><?= $report['parent_account'] ?? '' ?></td>
-                                            <td class="text-left"><?= $report['type'] == 0 ? 'General' : 'Detail' ?></td>
-                           </tr>
-                           
-                           <?php $detailAccounts = $coa->where(['parent_account' => $report['glcode'], 'type'=> 1])->findAll();
-                           foreach($detailAccounts as $detail):
-                           ?>
-                        
-                         <tr role="row" class="odd">
-                                            <td class="text-left"><?= $d++ ?></td>
-                                            <td class="sorting_1 text-left"><?= $detail['glcode'] ?? '' ?></td>
-                                            <td class="text-left"><?= $detail['account_name'] ?? '' ?></td>
-                                            <td class="text-left"><?= $detail['parent_account'] ?? '' ?></td>
-                                            <td class="text-left"><?= $detail['type'] == 0 ? 'General' : 'Detail' ?></td>
-                           </tr>
+                            <tr role="row" class="odd bg-secondary text-white">
+                                <td class="text-left"><?= $d++ ?></td>
+                                <td class="sorting_1 text-left"><?= $report['glcode'] ?? '' ?></td>
+                                <td class="text-left"><?= $report['account_name'] ?? '' ?></td>
+                                <td class="text-left"><?= $report['parent_account'] ?? '' ?></td>
+                                <td class="text-left"><?= $report['type'] == 0 ? 'General' : 'Detail' ?></td>
+                            </tr>
+
+                            <?php $detailAccounts = $coa->where(['parent_account' => $report['glcode'], 'type'=> 1])->findAll();
+                            foreach($detailAccounts as $detail):
+                                ?>
+
+                                <tr role="row" class="odd">
+                                    <td class="text-left"><?= $d++ ?></td>
+                                    <td class="sorting_1 text-left"><?= $detail['glcode'] ?? '' ?></td>
+                                    <td class="text-left"><?= $detail['account_name'] ?? '' ?></td>
+                                    <td class="text-left"><?= $detail['parent_account'] ?? '' ?></td>
+                                    <td class="text-left"><?= $detail['type'] == 0 ? 'General' : 'Detail' ?></td>
+                                </tr>
+                            <?php endforeach; ?>
+
+
+
                         <?php endforeach; ?>
-                        
-                        
-                           
-                        <?php endforeach; ?>
-                        
+
                         <tr role="row" class="odd">
                             <td class="sorting_1" colspan="3"><strong style="font-size:16px; text-transform:uppercase;">Expenses</strong></td>
                         </tr>
-                         <?php
-                            $e = 1;
+                        <?php
+                        $e = 1;
                         ?>
                         <?php foreach ($expense_account_general as $report): ?>
-                        <tr role="row" class="odd bg-secondary text-white">
-                                            <td class="text-left"><?= $e++ ?></td>
-                                            <td class="sorting_1 text-left"><?= $report['glcode'] ?? '' ?></td>
-                                            <td class="text-left"><?= $report['account_name'] ?? '' ?></td>
-                                            <td class="text-left"><?= $report['parent_account'] ?? '' ?></td>
-                                            <td class="text-left"><?= $report['type'] == 0 ? 'General' : 'Detail' ?></td>
-                           </tr>
-                           
-                           <?php $detailAccounts = $coa->where(['parent_account' => $report['glcode'], 'type'=> 1])->findAll();
-                           foreach($detailAccounts as $detail):
-                           ?>
-                        
-                         <tr role="row" class="odd">
-                                            <td class="text-left"><?= $e++ ?></td>
-                                            <td class="sorting_1 text-left"><?= $detail['glcode'] ?? '' ?></td>
-                                            <td class="text-left"><?= $detail['account_name'] ?? '' ?></td>
-                                            <td class="text-left"><?= $detail['parent_account'] ?? '' ?></td>
-                                            <td class="text-left"><?= $detail['type'] == 0 ? 'General' : 'Detail' ?></td>
-                           </tr>
+                            <tr role="row" class="odd bg-secondary text-white">
+                                <td class="text-left"><?= $e++ ?></td>
+                                <td class="sorting_1 text-left"><?= $report['glcode'] ?? '' ?></td>
+                                <td class="text-left"><?= $report['account_name'] ?? '' ?></td>
+                                <td class="text-left"><?= $report['parent_account'] ?? '' ?></td>
+                                <td class="text-left"><?= $report['type'] == 0 ? 'General' : 'Detail' ?></td>
+                            </tr>
+
+                            <?php $detailAccounts = $coa->where(['parent_account' => $report['glcode'], 'type'=> 1])->findAll();
+                            foreach($detailAccounts as $detail):
+                                ?>
+
+                                <tr role="row" class="odd">
+                                    <td class="text-left"><?= $e++ ?></td>
+                                    <td class="sorting_1 text-left"><?= $detail['glcode'] ?? '' ?></td>
+                                    <td class="text-left"><?= $detail['account_name'] ?? '' ?></td>
+                                    <td class="text-left"><?= $detail['parent_account'] ?? '' ?></td>
+                                    <td class="text-left"><?= $detail['type'] == 0 ? 'General' : 'Detail' ?></td>
+                                </tr>
+                            <?php endforeach; ?>
+
+
+
                         <?php endforeach; ?>
-                        
-                        
-                           
-                        <?php endforeach; ?>
-                        
+
                     </table>
                 </div>
             </div>
@@ -267,22 +254,22 @@ Chart of Accounts
 <script src="assets/js/pages/tables/jquery-datatable.js"></script>
 <script src="assets/js/axios.min.js"></script>
 <script src="assets/js/toastify.min.js"></script>
-    <script>
-        $(document).ready(function(){
-            $('.simpletable').DataTable();
+<script>
+    $(document).ready(function(){
+        $('.simpletable').DataTable();
 
-            $('.error-wrapper').hide();
-            $(document).on('click', '.editLocation', function(e){
-                e.preventDefault();
-                var location = $(this).data('location');
-                var id = $(this).data('locationid');
-                $('#editLocation').val(location);
-                $('#locationId').val(id);
-            });
-            addNewBankForm.onsubmit = async (e) => {
-                e.preventDefault();
+        $('.error-wrapper').hide();
+        $(document).on('click', '.editLocation', function(e){
+            e.preventDefault();
+            var location = $(this).data('location');
+            var id = $(this).data('locationid');
+            $('#editLocation').val(location);
+            $('#locationId').val(id);
+        });
+        addNewBankForm.onsubmit = async (e) => {
+            e.preventDefault();
 
-                axios.post('/add-new-bank',new FormData(addNewBankForm))
+            axios.post('/add-new-bank',new FormData(addNewBankForm))
                 .then(response=>{
                     Toastify({
                         text: "Success! Bank saved.",
@@ -300,8 +287,8 @@ Chart of Accounts
                     $('#sort_code').val('');
                 })
                 .catch(error=>{
-                        $.each(error.response.data.errors, function(key, value){
-                            Toastify({
+                    $.each(error.response.data.errors, function(key, value){
+                        Toastify({
                             text: 'Error',
                             duration: 3000,
                             newWindow: true,
@@ -315,11 +302,11 @@ Chart of Accounts
                         //$('#validation-errors').append("<li><i class='ti-hand-point-right text-danger mr-2'></i><small class='text-danger'>"+value+"</small></li>");
                     });
                 });
-            };
-            editLocationForm.onsubmit = async (e) => {
-                e.preventDefault();
+        };
+        editLocationForm.onsubmit = async (e) => {
+            e.preventDefault();
 
-                axios.post('/edit-location',new FormData(editLocationForm))
+            axios.post('/edit-location',new FormData(editLocationForm))
                 .then(response=>{
                     Toastify({
                         text: "Success! Changes saved.",
@@ -337,8 +324,8 @@ Chart of Accounts
                     $('#editLocationModal').modal('hide');
                 })
                 .catch(error=>{
-                        $.each(error.response.data.errors, function(key, value){
-                            Toastify({
+                    $.each(error.response.data.errors, function(key, value){
+                        Toastify({
                             text: 'Ooops! Something went wrong.',
                             duration: 3000,
                             newWindow: true,
@@ -352,7 +339,7 @@ Chart of Accounts
                         //$('#validation-errors').append("<li><i class='ti-hand-point-right text-danger mr-2'></i><small class='text-danger'>"+value+"</small></li>");
                     });
                 });
-            };
-        });
-    </script>
+        };
+    });
+</script>
 <?= $this->endSection() ?>
