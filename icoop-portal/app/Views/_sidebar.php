@@ -151,6 +151,9 @@
                   <a href="/savings-variation" class="nk-menu-link"><span class="nk-menu-text">Savings Variation</span></a>
                 </li>
                 <li class="nk-menu-item">
+                  <a href="/deposit-lodgement" class="nk-menu-link"><span class="nk-menu-text">Deposits/Lodgement</span></a>
+                </li>
+                <li class="nk-menu-item">
                   <a href="#" class="nk-menu-link"><span class="nk-menu-text">Closure Form</span></a>
                 </li>
               </ul><!-- .nk-menu-sub -->

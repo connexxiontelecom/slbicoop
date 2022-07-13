@@ -29,7 +29,6 @@ class Notifications extends BaseController {
     if ($this->session->active) {
       $staff_id = $this->session->get('staff_id');
       $user_notifications = $this->notificationModel->where(['receiver_id' => $staff_id, 'seen' => 0])->findAll();
-      print_r($user_notifications);
       return $this->response->setJSON($user_notifications);
     }
     return redirect('auth/login');

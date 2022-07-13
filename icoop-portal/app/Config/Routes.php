@@ -56,6 +56,11 @@ $routes->post('withdrawal-application/submit-application', 'WithdrawalApplicatio
 
 $routes->get('savings-variation', 'SavingsVariation::index');
 
+$routes->get('deposit-lodgement', 'DepositLodgement::index');
+$routes->get('deposit-lodgement/get-active-loans', 'DepositLodgement::get_active_loans');
+$routes->get('deposit-lodgement/get-savings-types', 'DepositLodgement::get_savings_types');
+$routes->post('deposit-lodgement/submit-deposit', 'DepositLodgement::submit_deposit');
+
 $routes->get('notifications', 'Notifications::index');
 $routes->get('unread-notifications', 'Notifications::unread_notifications');
 $routes->get('get-user-notifications', 'Notifications::get_user_notifications');
