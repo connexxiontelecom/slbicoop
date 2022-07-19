@@ -6,8 +6,14 @@ class LoanApplication extends BaseController {
 
   function index() {
     if ($this->session->active) {
+      $outstanding_loans = $this->_get_user_loans(0);
+      $total_encumbrance = 0;
+      foreach ($outstanding_loans as $outstanding_loan) {
+        $total_encumbrance += $outstanding_loan['loan_encumbrance_amount'];
+      }
       $page_data['page_title'] = 'Loan Application';
       $page_data['loan_types'] = $this->loanSetupModel->where('status', 1)->findAll();
+      $page_data['encumbrance_amount'] = $total_encumbrance;
       return view('service-forms/loan-application', $page_data);
     }
     return redirect('auth/login');
@@ -174,6 +180,9 @@ class LoanApplication extends BaseController {
     $firstname = $this->session->get('firstname');
     $lastname = $this->session->get('lastname');
     $othername = $this->session->get('othername');
+    $waiver_charge = 0;
+    $allowed_loan = 0;
+
     $response_data = array();
     if (!$loan_setup_id || $loan_setup_id == 'default') {
       $response_data['success'] = false;
@@ -230,10 +239,15 @@ class LoanApplication extends BaseController {
       if ($loan_setup_details['psr'] == 1) {
         $regular_savings_amount = $this->_get_regular_savings_amount($staff_id);
         $psr_amount = ($loan_setup_details['psr_value'] / 100) * $loan_amount;
-        if ($psr_amount > $regular_savings_amount) {
-          $response_data['success'] = false;
-          $response_data['msg'] = 'The PSR amount should not exceed your Regular Savings amount';
-          return $response_data;
+        $outstanding_loans = $this->_get_user_loans(0);
+        $total_encumbrance = 0;
+        foreach ($outstanding_loans as $outstanding_loan) {
+          $total_encumbrance += $outstanding_loan['loan_encumbrance_amount'];
+        }
+        $free_savings_balance = $regular_savings_amount - $total_encumbrance;
+        if ($psr_amount > $free_savings_balance) {
+          $allowed_loan = $free_savings_balance / ($loan_setup_details['psr_value'] / 100);
+          $waiver_charge = ($loan_amount - $allowed_loan) * (10 / 100);
         }
       }
       $loan_application_data = array(
@@ -245,7 +259,9 @@ class LoanApplication extends BaseController {
         'duration' => $loan_duration,
         'amount' => $loan_amount,
         'applied_date' => date('Y-m-d H:i:s'),
-        'attachment' => $filename
+        'attachment' => $filename,
+        'waiver' => $waiver_charge,
+        'encumbrance_amount' => $allowed_loan
       );
       $loan_application_id = $this->loanApplicationModel->insert($loan_application_data);
       $this->_update_loan_guarantors($loan_application_id, $guarantor_1, $staff_id);

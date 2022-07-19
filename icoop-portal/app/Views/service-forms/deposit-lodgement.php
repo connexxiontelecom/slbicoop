@@ -59,7 +59,7 @@ $session = session();
                                     <option value="default">Default Value</option>
                                     <?php if (!empty($coop_banks)): foreach ($coop_banks as $coop_bank):?>
                                       <option value="<?=$coop_bank['coop_bank_id']?>">
-                                        <?=$coop_bank['description']?> - <?=$coop_bank['account_no']?>, <?=$coop_bank['bank']['bank_name']?>
+                                        <?=$coop_bank['account_no']?>, <?=$coop_bank['bank']['bank_name']?> - <?=$coop_bank['description']?>
                                       </option>
                                     <?php endforeach; endif;?>
                                   </select>

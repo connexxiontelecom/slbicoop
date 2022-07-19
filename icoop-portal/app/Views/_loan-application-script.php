@@ -14,6 +14,9 @@
   let savingsAmount = '<?= $session->get('regular_savings')?>'
   let today = moment()
   let monthsDifference = today.diff(userApprovedDate, 'months', true)
+  let encumbranceAmount = <?=$encumbrance_amount?>;
+  let freeSavingsBalance = 0
+  let waiverCharge = 0
 
   $(document).ready(function () {
     // Perform all these actions when user selects the loan type
@@ -145,13 +148,17 @@
 
         }
         if (parseInt(loanPSR) > 0) {
+          freeSavingsBalance = savingsAmount - encumbranceAmount
           let loanPSRAmount = (parseInt(loanPSRValue) / 100) * selectedLoanAmount
-          if (loanPSRAmount <= savingsAmount) {
+          if (loanPSRAmount <= freeSavingsBalance) {
             $('#loan-psr-passed').attr('hidden', false)
             $('#loan-psr-failed').attr('hidden', true)
           } else {
+            let allowedLoanAmount = freeSavingsBalance / (parseInt(loanPSRValue) / 100)
+            waiverCharge = (selectedLoanAmount - allowedLoanAmount) * 0.10
             $('#loan-psr-passed').attr('hidden', true)
             $('#loan-psr-failed').attr('hidden', false)
+            $('#loan-psr-failed').append(` You will be charged a waiver charge of ${(waiverCharge).toLocaleString()}`)
           }
         }
       } else {

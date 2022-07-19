@@ -172,6 +172,7 @@ class BaseController extends Controller
           'total_dr' => $total_dr,
           'total_cr' => $total_cr,
           'loan_balance' => $cooperator_loan_details[0]->amount + ($total_dr - $total_cr),
+          'loan_encumbrance_amount' => $cooperator_loan['encumbrance_amount']
         );
         $i++;
       }

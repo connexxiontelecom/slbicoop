@@ -155,7 +155,7 @@ $session = session();
                           <em class="icon ni ni-check-circle"></em> Your PSR loan amount is valid.
                         </div>
                         <div class="alert alert-icon alert-warning mt-1 mb-1" role="alert" id="loan-psr-failed" hidden>
-                          <em class="icon ni ni-alert-circle"></em><span class="font-weight-bolder">We're Sorry</span>. Your PSR loan amount should not exceed your Regular Savings.
+                          <em class="icon ni ni-alert-circle"></em><span class="font-weight-bolder">Warning</span>. You do not have enough PSR for this loan.
                         </div>
                       </div>
                     </div>
