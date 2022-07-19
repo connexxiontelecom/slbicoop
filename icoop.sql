@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Mar 01, 2022 at 03:42 PM
--- Server version: 10.4.11-MariaDB
--- PHP Version: 8.1.2
+-- Host: database
+-- Generation Time: Jun 20, 2022 at 01:40 PM
+-- Server version: 5.7.38
+-- PHP Version: 8.0.19
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -29,21 +29,21 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `account_closure` (
   `ac_id` int(11) NOT NULL,
-  `ac_staff_id` text DEFAULT NULL,
+  `ac_staff_id` text,
   `ac_effective_date` date DEFAULT NULL,
-  `ac_mailing` text DEFAULT NULL,
-  `ac_email` text DEFAULT NULL,
-  `ac_phone` text DEFAULT NULL,
+  `ac_mailing` text,
+  `ac_email` text,
+  `ac_phone` text,
   `ac_a_date` date DEFAULT NULL,
   `ac_by` text NOT NULL,
-  `ac_verify_comment` text DEFAULT NULL,
-  `ac_verify_by` text DEFAULT NULL,
+  `ac_verify_comment` text,
+  `ac_verify_by` text,
   `ac_verify_date` date DEFAULT NULL,
-  `ac_approve_comment` text DEFAULT NULL,
-  `ac_approve_by` text DEFAULT NULL,
+  `ac_approve_comment` text,
+  `ac_approve_by` text,
   `ac_approve_date` date DEFAULT NULL,
-  `ac_discard_comment` text DEFAULT NULL,
-  `ac_discard_by` text DEFAULT NULL,
+  `ac_discard_comment` text,
+  `ac_discard_by` text,
   `ac_discard_date` date DEFAULT NULL,
   `ac_status` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -66,22 +66,29 @@ CREATE TABLE `applications` (
   `application_staff_id` text NOT NULL,
   `application_first_name` text NOT NULL,
   `application_last_name` text NOT NULL,
-  `application_other_name` text DEFAULT NULL,
-  `application_gender` text DEFAULT NULL,
+  `application_other_name` text,
+  `application_gender` text,
   `application_department_id` text NOT NULL,
   `application_location_id` text NOT NULL,
   `application_payroll_group_id` text NOT NULL,
   `application_dob` text NOT NULL,
   `application_email` text NOT NULL,
-  `application_address` text DEFAULT NULL,
+  `application_address` text,
   `application_city` text NOT NULL,
   `application_state_id` text NOT NULL,
   `application_telephone` text NOT NULL,
-  `application_kin_fullname` text DEFAULT NULL,
-  `application_kin_address` text DEFAULT NULL,
-  `application_kin_email` text DEFAULT NULL,
-  `application_kin_phone` text DEFAULT NULL,
-  `application_kin_relationship` text DEFAULT NULL,
+  `application_kin_fullname` text,
+  `application_kin_address` text,
+  `application_kin_email` text,
+  `application_kin_phone` text,
+  `application_kin_relationship` text,
+  `application_kin2_fullname` text NOT NULL,
+  `application_kin2_address` text,
+  `application_kin2_email` text,
+  `application_kin2_phone` text,
+  `application_kin2_relationship` text,
+  `application_kin2_percentage` double DEFAULT NULL,
+  `application_kin_percentage` double NOT NULL,
   `application_bank_id` int(11) NOT NULL,
   `application_account_number` text NOT NULL,
   `application_bank_branch` text NOT NULL,
@@ -90,24 +97,24 @@ CREATE TABLE `applications` (
   `application_savings` double DEFAULT NULL,
   `application_verify_by` text NOT NULL,
   `application_verify_date` date NOT NULL,
-  `application_verify_comment` text DEFAULT NULL,
+  `application_verify_comment` text,
   `application_approved_by` text NOT NULL,
   `application_approved_date` date NOT NULL,
-  `application_approved_comment` text DEFAULT NULL,
+  `application_approved_comment` text,
   `application_discarded_by` text NOT NULL,
   `application_discarded_date` date NOT NULL,
   `application_discarded_reason` text NOT NULL,
-  `application_status` int(11) DEFAULT 0
+  `application_status` int(11) DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `applications`
 --
 
-INSERT INTO `applications` (`application_id`, `application_staff_id`, `application_first_name`, `application_last_name`, `application_other_name`, `application_gender`, `application_department_id`, `application_location_id`, `application_payroll_group_id`, `application_dob`, `application_email`, `application_address`, `application_city`, `application_state_id`, `application_telephone`, `application_kin_fullname`, `application_kin_address`, `application_kin_email`, `application_kin_phone`, `application_kin_relationship`, `application_bank_id`, `application_account_number`, `application_bank_branch`, `application_sort_code`, `application_date`, `application_savings`, `application_verify_by`, `application_verify_date`, `application_verify_comment`, `application_approved_by`, `application_approved_date`, `application_approved_comment`, `application_discarded_by`, `application_discarded_date`, `application_discarded_reason`, `application_status`) VALUES
-(1, '12345', 'Oki-Peter', 'Ejiroghene', '', 'male', '1', '1', '1', '2020-12-16', 'peterejiro@outlook.com', '12', 'abuja', '38', '08134395652', 'atakpor sylvia', '12', 'peterejiro96@gmail.com', '08134395652', NULL, 1, '0150176481', 'benin', '64532165132', '2020-12-18', 5000, 'administrator administrator', '2020-12-21', '', 'administrator administrator', '2020-12-21', 'ok', '', '0000-00-00', '', 2),
-(3, 'cs006', 'Mason', 'Oki', 'Tega', 'male', '1', '1', '1', '1996-06-16', 'masonoki@yahoo.com', 'test', 'benin', '12', '08033553752', 'peterejiro96@gmail.com', 'test', NULL, '08090945451', 'sibling', 1, '21321321321', 'benin', '456', '2021-01-26', 500000, 'administrator administrator', '2021-03-12', '', 'administrator administrator', '2021-03-12', '', '', '0000-00-00', '', 2),
-(5, 'eng1303449', 'Jason', 'Jason', 'Jason', 'male', '1', '1', '1', '1996-06-16', 'jason.j@gmail.com', 'kbwa', 'Kubwa', '15', '0899999999', 'jason.j', 'Kubwa', 'jason.j@gmail.com', '', 'sibling', 1, '0150176481', 'uselu', '01888888888', '2021-07-12', 100000, 'administrator administrator', '2021-07-12', 'ok', 'administrator administrator', '2021-07-12', 'ok', '', '0000-00-00', '', 2);
+INSERT INTO `applications` (`application_id`, `application_staff_id`, `application_first_name`, `application_last_name`, `application_other_name`, `application_gender`, `application_department_id`, `application_location_id`, `application_payroll_group_id`, `application_dob`, `application_email`, `application_address`, `application_city`, `application_state_id`, `application_telephone`, `application_kin_fullname`, `application_kin_address`, `application_kin_email`, `application_kin_phone`, `application_kin_relationship`, `application_kin2_fullname`, `application_kin2_address`, `application_kin2_email`, `application_kin2_phone`, `application_kin2_relationship`, `application_kin2_percentage`, `application_kin_percentage`, `application_bank_id`, `application_account_number`, `application_bank_branch`, `application_sort_code`, `application_date`, `application_savings`, `application_verify_by`, `application_verify_date`, `application_verify_comment`, `application_approved_by`, `application_approved_date`, `application_approved_comment`, `application_discarded_by`, `application_discarded_date`, `application_discarded_reason`, `application_status`) VALUES
+(1, '12345', 'Oki-Peter', 'Ejiroghene', '', 'male', '1', '1', '1', '2020-12-16', 'peterejiro@outlook.com', '12', 'abuja', '38', '08134395652', 'atakpor sylvia', '12', 'peterejiro96@gmail.com', '08134395652', NULL, '', NULL, NULL, NULL, NULL, NULL, 0, 1, '0150176481', 'benin', '64532165132', '2020-12-18', 5000, 'administrator administrator', '2020-12-21', '', 'administrator administrator', '2020-12-21', 'ok', '', '0000-00-00', '', 2),
+(3, 'cs006', 'Mason', 'Oki', 'Tega', 'male', '1', '1', '1', '1996-06-16', 'masonoki@yahoo.com', 'test', 'benin', '12', '08033553752', 'peterejiro96@gmail.com', 'test', NULL, '08090945451', 'sibling', '', NULL, NULL, NULL, NULL, NULL, 0, 1, '21321321321', 'benin', '456', '2021-01-26', 500000, 'administrator administrator', '2021-03-12', '', 'administrator administrator', '2021-03-12', '', '', '0000-00-00', '', 2),
+(5, 'eng1303449', 'Jason', 'Jason', 'Jason', 'male', '1', '1', '1', '1996-06-16', 'jason.j@gmail.com', 'kbwa', 'Kubwa', '15', '0899999999', 'jason.j', 'Kubwa', 'jason.j@gmail.com', '', 'sibling', '', NULL, NULL, NULL, NULL, NULL, 0, 1, '0150176481', 'uselu', '01888888888', '2021-07-12', 100000, 'administrator administrator', '2021-07-12', 'ok', 'administrator administrator', '2021-07-12', 'ok', '', '0000-00-00', '', 2);
 
 -- --------------------------------------------------------
 
@@ -137,9 +144,9 @@ INSERT INTO `banks` (`bank_id`, `bank_name`, `sort_code`) VALUES
 
 CREATE TABLE `bulksms` (
   `bulksms_id` int(11) NOT NULL,
-  `sender_id` text DEFAULT NULL,
-  `receivers` text DEFAULT NULL,
-  `message` text DEFAULT NULL
+  `sender_id` text,
+  `receivers` text,
+  `message` text
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -167,12 +174,12 @@ CREATE TABLE `coas` (
   `coa_id` int(11) NOT NULL,
   `account_name` text NOT NULL,
   `account_type` int(11) NOT NULL,
-  `bank` int(11) NOT NULL DEFAULT 0,
+  `bank` int(11) NOT NULL DEFAULT '0',
   `glcode` int(11) NOT NULL,
-  `parent_account` int(11) NOT NULL DEFAULT 0,
-  `type` text DEFAULT NULL COMMENT '0=General, 1=Detail',
-  `note` text DEFAULT NULL,
-  `created_at` datetime NOT NULL DEFAULT current_timestamp()
+  `parent_account` int(11) NOT NULL DEFAULT '0',
+  `type` text COMMENT '0=General, 1=Detail',
+  `note` text,
+  `created_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -376,11 +383,11 @@ CREATE TABLE `cooperators` (
   `cooperator_id` int(11) NOT NULL,
   `cooperator_application_id` int(11) NOT NULL,
   `cooperator_staff_id` text NOT NULL,
-  `cooperator_username` text DEFAULT NULL,
-  `cooperator_password` text DEFAULT NULL,
+  `cooperator_username` text,
+  `cooperator_password` text,
   `cooperator_first_name` text NOT NULL,
   `cooperator_last_name` text NOT NULL,
-  `cooperator_other_name` text DEFAULT NULL,
+  `cooperator_other_name` text,
   `cooperator_gender` text NOT NULL,
   `cooperator_department_id` text NOT NULL,
   `cooperator_location_id` text NOT NULL,
@@ -391,11 +398,18 @@ CREATE TABLE `cooperators` (
   `cooperator_city` text NOT NULL,
   `cooperator_state_id` text NOT NULL,
   `cooperator_telephone` text NOT NULL,
-  `cooperator_kin_fullname` text DEFAULT NULL,
-  `cooperator_kin_address` text DEFAULT NULL,
-  `cooperator_kin_email` text DEFAULT NULL,
-  `cooperator_kin_phone` text DEFAULT NULL,
-  `cooperator_kin_relationship` text DEFAULT NULL,
+  `cooperator_kin_fullname` text,
+  `cooperator_kin_address` text,
+  `cooperator_kin_email` text,
+  `cooperator_kin_phone` text,
+  `cooperator_kin_relationship` text,
+  `cooperator_kin2_fullname` text NOT NULL,
+  `cooperator_kin2_address` text,
+  `cooperator_kin2_email` text,
+  `cooperator_kin2_phone` text,
+  `cooperator_kin2_relationship` text,
+  `cooperator_kin2_percentage` double DEFAULT NULL,
+  `cooperator_kin_percentage` double NOT NULL,
   `cooperator_bank_id` int(11) NOT NULL,
   `cooperator_account_number` text NOT NULL,
   `cooperator_bank_branch` text NOT NULL,
@@ -404,10 +418,10 @@ CREATE TABLE `cooperators` (
   `cooperator_savings` double NOT NULL,
   `cooperator_verify_by` text NOT NULL,
   `cooperator_verify_date` date NOT NULL,
-  `cooperator_verify_comment` text DEFAULT NULL,
+  `cooperator_verify_comment` text,
   `cooperator_approved_by` text NOT NULL,
   `cooperator_approved_date` date NOT NULL,
-  `cooperator_approved_comment` text DEFAULT NULL,
+  `cooperator_approved_comment` text,
   `cooperator_discarded_by` text NOT NULL,
   `cooperator_discarded_date` date NOT NULL,
   `cooperator_discarded_reason` text NOT NULL,
@@ -418,10 +432,10 @@ CREATE TABLE `cooperators` (
 -- Dumping data for table `cooperators`
 --
 
-INSERT INTO `cooperators` (`cooperator_id`, `cooperator_application_id`, `cooperator_staff_id`, `cooperator_username`, `cooperator_password`, `cooperator_first_name`, `cooperator_last_name`, `cooperator_other_name`, `cooperator_gender`, `cooperator_department_id`, `cooperator_location_id`, `cooperator_payroll_group_id`, `cooperator_dob`, `cooperator_email`, `cooperator_address`, `cooperator_city`, `cooperator_state_id`, `cooperator_telephone`, `cooperator_kin_fullname`, `cooperator_kin_address`, `cooperator_kin_email`, `cooperator_kin_phone`, `cooperator_kin_relationship`, `cooperator_bank_id`, `cooperator_account_number`, `cooperator_bank_branch`, `cooperator_sort_code`, `cooperator_date`, `cooperator_savings`, `cooperator_verify_by`, `cooperator_verify_date`, `cooperator_verify_comment`, `cooperator_approved_by`, `cooperator_approved_date`, `cooperator_approved_comment`, `cooperator_discarded_by`, `cooperator_discarded_date`, `cooperator_discarded_reason`, `cooperator_status`) VALUES
-(1, 1, '12345', NULL, '$2y$10$eWOEcmAxtEP0MuQXLpYGGeAUWW8lFALkaJ0R5BIYwFHMDLcoXnbsC', 'Oki-Peter', 'Ejiroghene', '', 'male', '1', '1', '1', '2020-12-16', 'peterejiro@outlook.com', '12', 'abuja', '38', '08134395652', 'atakpor sylvia', '12', 'peterejiro96@gmail.com', '08134395652', NULL, 1, '0150176481', 'benin', '64532165132', '2020-12-18', 5000, 'administrator administrator', '2020-12-21', '', 'administrator administrator', '2020-12-21', 'ok', '', '0000-00-00', '', 2),
-(2, 3, 'cs006', NULL, '$2y$10$84qMzIr8Y/gPvBo8fjiyK.07jiWnInA49Yi6OodJfWDUgPNwaUMY.', '', 'Oki', 'Tega', 'male', '1', '1', '1', '1996-06-16', 'masonoki@yahoo.com', 'test', 'benin', '12', '08033553752', 'peterejiro96@gmail.com', 'test', NULL, '08090945451', 'sibling', 1, '0818682885', 'benin', '456', '2021-01-26', 500000, 'administrator administrator', '2021-03-12', '', 'administrator administrator', '2021-03-12', '', '', '0000-00-00', '', 2),
-(4, 5, 'eng1303449', NULL, '$2y$10$S8dOSkpm/WOmlsSvd0Aoeu4MOD2QwldkpUwNEF5YWoQnZOFYjBN16', 'Jason', 'Jason', 'Jason', 'male', '1', '1', '1', '1996-06-16', 'jason.j@gmail.com', 'kbwa', 'Kubwa', '15', '0899999999', 'jason.j', 'Kubwa', 'jason.j@gmail.com', '', 'sibling', 2, '2191339190', 'uselu', '01888888888', '2021-07-12', 100000, 'administrator administrator', '2021-07-12', 'ok', 'administrator administrator', '2021-07-12', 'ok', '', '0000-00-00', '', 2);
+INSERT INTO `cooperators` (`cooperator_id`, `cooperator_application_id`, `cooperator_staff_id`, `cooperator_username`, `cooperator_password`, `cooperator_first_name`, `cooperator_last_name`, `cooperator_other_name`, `cooperator_gender`, `cooperator_department_id`, `cooperator_location_id`, `cooperator_payroll_group_id`, `cooperator_dob`, `cooperator_email`, `cooperator_address`, `cooperator_city`, `cooperator_state_id`, `cooperator_telephone`, `cooperator_kin_fullname`, `cooperator_kin_address`, `cooperator_kin_email`, `cooperator_kin_phone`, `cooperator_kin_relationship`, `cooperator_kin2_fullname`, `cooperator_kin2_address`, `cooperator_kin2_email`, `cooperator_kin2_phone`, `cooperator_kin2_relationship`, `cooperator_kin2_percentage`, `cooperator_kin_percentage`, `cooperator_bank_id`, `cooperator_account_number`, `cooperator_bank_branch`, `cooperator_sort_code`, `cooperator_date`, `cooperator_savings`, `cooperator_verify_by`, `cooperator_verify_date`, `cooperator_verify_comment`, `cooperator_approved_by`, `cooperator_approved_date`, `cooperator_approved_comment`, `cooperator_discarded_by`, `cooperator_discarded_date`, `cooperator_discarded_reason`, `cooperator_status`) VALUES
+(1, 1, '12345', NULL, '$2y$10$eWOEcmAxtEP0MuQXLpYGGeAUWW8lFALkaJ0R5BIYwFHMDLcoXnbsC', 'Oki-Peter', 'Ejiroghene', '', 'male', '1', '1', '1', '2020-12-16', 'peterejiro@outlook.com', '12', 'abuja', '38', '08134395652', 'atakpor sylvia', '12', 'peterejiro96@gmail.com', '08134395652', NULL, '', NULL, NULL, NULL, NULL, NULL, 0, 1, '0150176481', 'benin', '64532165132', '2020-12-18', 5000, 'administrator administrator', '2020-12-21', '', 'administrator administrator', '2020-12-21', 'ok', '', '0000-00-00', '', 2),
+(2, 3, 'cs006', NULL, '$2y$10$84qMzIr8Y/gPvBo8fjiyK.07jiWnInA49Yi6OodJfWDUgPNwaUMY.', '', 'Oki', 'Tega', 'male', '1', '1', '1', '1996-06-16', 'masonoki@yahoo.com', 'test', 'benin', '12', '08033553752', 'peterejiro96@gmail.com', 'test', NULL, '08090945451', 'sibling', '', NULL, NULL, NULL, NULL, NULL, 0, 1, '0818682885', 'benin', '456', '2021-01-26', 500000, 'administrator administrator', '2021-03-12', '', 'administrator administrator', '2021-03-12', '', '', '0000-00-00', '', 2),
+(4, 5, 'eng1303449', NULL, '$2y$10$S8dOSkpm/WOmlsSvd0Aoeu4MOD2QwldkpUwNEF5YWoQnZOFYjBN16', 'Jason', 'Jason', 'Jason', 'male', '1', '1', '1', '1996-06-16', 'jason.j@gmail.com', 'kbwa', 'Kubwa', '15', '0899999999', 'jason.j', 'Kubwa', 'jason.j@gmail.com', '', 'sibling', '', NULL, NULL, NULL, NULL, NULL, 0, 2, '2191339190', 'uselu', '01888888888', '2021-07-12', 100000, 'administrator administrator', '2021-07-12', 'ok', 'administrator administrator', '2021-07-12', 'ok', '', '0000-00-00', '', 2);
 
 -- --------------------------------------------------------
 
@@ -433,8 +447,8 @@ CREATE TABLE `coop_banks` (
   `coop_bank_id` int(11) NOT NULL,
   `bank_id` int(11) DEFAULT NULL,
   `branch` varchar(50) DEFAULT 'No branch',
-  `account_no` text DEFAULT NULL,
-  `description` text DEFAULT NULL,
+  `account_no` text,
+  `description` text,
   `glcode` int(11) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -458,17 +472,17 @@ CREATE TABLE `customer_receivables` (
   `customer_receivable_id` int(11) NOT NULL,
   `cr_transaction_date` datetime DEFAULT NULL,
   `cr_coop_bank_id` int(11) DEFAULT NULL,
-  `cr_amount` double DEFAULT 0,
-  `cr_purpose` text DEFAULT NULL,
+  `cr_amount` double DEFAULT '0',
+  `cr_purpose` text,
   `cr_gl_cr` int(11) DEFAULT NULL,
   `cr_customer_setup_id` int(11) DEFAULT NULL,
-  `cr_verify` int(11) DEFAULT 0 COMMENT '1=verified,0=unverified',
-  `cr_approve` int(11) DEFAULT 0 COMMENT '1=approved,0=not approved',
-  `cr_approved_by` text DEFAULT NULL,
-  `cr_verified_by` text DEFAULT NULL,
+  `cr_verify` int(11) DEFAULT '0' COMMENT '1=verified,0=unverified',
+  `cr_approve` int(11) DEFAULT '0' COMMENT '1=approved,0=not approved',
+  `cr_approved_by` text,
+  `cr_verified_by` text,
   `cr_date_verified` datetime DEFAULT NULL,
   `cr_date_approved` datetime DEFAULT NULL,
-  `cr_approve_comment` text DEFAULT NULL
+  `cr_approve_comment` text
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -488,11 +502,11 @@ INSERT INTO `customer_receivables` (`customer_receivable_id`, `cr_transaction_da
 
 CREATE TABLE `customer_setups` (
   `customer_setup_id` int(11) NOT NULL,
-  `customer_name` text DEFAULT NULL,
-  `contact_person` text DEFAULT NULL,
-  `email` text DEFAULT NULL,
-  `phone_no` text DEFAULT NULL,
-  `gl_account_code` text DEFAULT NULL
+  `customer_name` text,
+  `contact_person` text,
+  `email` text,
+  `phone_no` text,
+  `gl_account_code` text
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -512,7 +526,7 @@ INSERT INTO `customer_setups` (`customer_setup_id`, `customer_name`, `contact_pe
 CREATE TABLE `departments` (
   `department_id` bigint(20) NOT NULL,
   `department_name` text NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -538,11 +552,11 @@ CREATE TABLE `entry_payment_details` (
   `entry_payment_d_detail_id` int(11) NOT NULL,
   `entry_payment_d_master_id` int(11) DEFAULT NULL,
   `entry_payment_d_payee_bank` int(11) DEFAULT NULL,
-  `entry_payment_d_payee_name` text DEFAULT NULL,
-  `entry_payment_d_amount` double DEFAULT 0,
-  `entry_payment_d_bank_name` text DEFAULT NULL,
-  `entry_payment_d_account_no` text DEFAULT NULL,
-  `entry_payment_d_reference_no` text DEFAULT NULL,
+  `entry_payment_d_payee_name` text,
+  `entry_payment_d_amount` double DEFAULT '0',
+  `entry_payment_d_bank_name` text,
+  `entry_payment_d_account_no` text,
+  `entry_payment_d_reference_no` text,
   `entry_payment_d_gl_account_no` int(11) DEFAULT NULL,
   `third_party_payment_entry_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -566,13 +580,13 @@ CREATE TABLE `entry_payment_masters` (
   `entry_payment_master_id` int(11) NOT NULL,
   `entry_payment_bank_id` int(11) DEFAULT NULL,
   `entry_payment_payable_date` datetime DEFAULT NULL,
-  `entry_payment_cheque_no` text DEFAULT NULL,
-  `entry_payment_verified` int(11) DEFAULT 0 COMMENT '0=unverified,1=verified',
-  `entry_payment_amount` double DEFAULT 0,
-  `entry_payment_verified_by` text DEFAULT NULL,
-  `entry_payment_approved` int(11) DEFAULT 0 COMMENT '0=not approved, 1=approved',
+  `entry_payment_cheque_no` text,
+  `entry_payment_verified` int(11) DEFAULT '0' COMMENT '0=unverified,1=verified',
+  `entry_payment_amount` double DEFAULT '0',
+  `entry_payment_verified_by` text,
+  `entry_payment_approved` int(11) DEFAULT '0' COMMENT '0=not approved, 1=approved',
   `entry_payment_date_verified` date DEFAULT NULL,
-  `entry_payment_approved_by` text DEFAULT NULL,
+  `entry_payment_approved_by` text,
   `entry_payment_approved_date` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -595,7 +609,7 @@ CREATE TABLE `exceptions` (
   `exception_transaction_date` date NOT NULL,
   `exception_amount` text NOT NULL,
   `exception_ref_code` text NOT NULL,
-  `exception_staff_name` text DEFAULT NULL,
+  `exception_staff_name` text,
   `exception_reason` text NOT NULL,
   `exception_month` int(11) NOT NULL,
   `exception_year` int(11) NOT NULL
@@ -621,12 +635,12 @@ CREATE TABLE `gls` (
   `narration` text NOT NULL,
   `gl_description` text NOT NULL,
   `gl_transaction_date` date DEFAULT NULL,
-  `dr_amount` double NOT NULL DEFAULT 0,
-  `cr_amount` double NOT NULL DEFAULT 0,
-  `ref_no` text DEFAULT NULL,
+  `dr_amount` double NOT NULL DEFAULT '0',
+  `cr_amount` double NOT NULL DEFAULT '0',
+  `ref_no` text,
   `bank` int(11) DEFAULT NULL,
-  `ob` double NOT NULL DEFAULT 0,
-  `created_at` text DEFAULT NULL
+  `ob` double NOT NULL DEFAULT '0',
+  `created_at` text
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -749,7 +763,7 @@ INSERT INTO `interest_routines` (`ir_id`, `ir_month`, `ir_year`, `ir_date`) VALU
 
 CREATE TABLE `journal_transfer_detail` (
   `jtd_id` int(11) NOT NULL,
-  `jtd_jtm_id` text DEFAULT NULL,
+  `jtd_jtm_id` text,
   `jtd_amount` double DEFAULT NULL,
   `jtd_type` int(11) DEFAULT NULL,
   `jtd_target` int(11) DEFAULT NULL
@@ -772,20 +786,20 @@ INSERT INTO `journal_transfer_detail` (`jtd_id`, `jtd_jtm_id`, `jtd_amount`, `jt
 
 CREATE TABLE `journal_transfer_master` (
   `jtm_id` int(11) NOT NULL,
-  `jtm_staff_id` text DEFAULT NULL,
+  `jtm_staff_id` text,
   `jtm_date` date DEFAULT NULL,
   `jtm_amount` double DEFAULT NULL,
   `jtm_payment_method` int(11) DEFAULT NULL,
   `jtm_status` int(11) DEFAULT NULL,
   `jtm_ct_id` int(11) DEFAULT NULL,
-  `jtm_verify_comment` text DEFAULT NULL,
-  `jtm_verify_by` text DEFAULT NULL,
+  `jtm_verify_comment` text,
+  `jtm_verify_by` text,
   `jtm_verify_date` date DEFAULT NULL,
-  `jtm_approve_comment` text DEFAULT NULL,
-  `jtm_approve_by` text DEFAULT NULL,
+  `jtm_approve_comment` text,
+  `jtm_approve_by` text,
   `jtm_approve_date` date DEFAULT NULL,
-  `jtm_discard_comment` text DEFAULT NULL,
-  `jtm_discard_by` text DEFAULT NULL,
+  `jtm_discard_comment` text,
+  `jtm_discard_by` text,
   `jtm_discard_date` date DEFAULT NULL,
   `jtm_a_date` date DEFAULT NULL,
   `jtm_by` text NOT NULL
@@ -809,18 +823,18 @@ CREATE TABLE `journal_vouchers` (
   `journal_id` int(11) NOT NULL,
   `glcode` int(11) NOT NULL,
   `entry_by` text NOT NULL,
-  `narration` text DEFAULT NULL,
-  `name` text DEFAULT NULL,
-  `dr_amount` double NOT NULL DEFAULT 0,
-  `cr_amount` double NOT NULL DEFAULT 0,
-  `ref_no` text DEFAULT NULL,
+  `narration` text,
+  `name` text,
+  `dr_amount` double NOT NULL DEFAULT '0',
+  `cr_amount` double NOT NULL DEFAULT '0',
+  `ref_no` text,
   `jv_date` datetime DEFAULT NULL,
   `entry_date` datetime DEFAULT NULL,
-  `posted` int(11) NOT NULL DEFAULT 0,
+  `posted` int(11) NOT NULL DEFAULT '0',
   `posted_date` datetime DEFAULT NULL,
-  `trash` int(11) NOT NULL DEFAULT 0,
+  `trash` int(11) NOT NULL DEFAULT '0',
   `created_at` datetime DEFAULT NULL,
-  `trash_by` text DEFAULT NULL,
+  `trash_by` text,
   `trash_date` date DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -842,19 +856,19 @@ INSERT INTO `journal_vouchers` (`journal_id`, `glcode`, `entry_by`, `narration`,
 
 CREATE TABLE `loans` (
   `loan_id` int(11) NOT NULL,
-  `staff_id` text DEFAULT NULL,
+  `staff_id` text,
   `loan_app_id` int(11) DEFAULT NULL,
   `loan_type` int(20) DEFAULT NULL,
-  `amount` double DEFAULT 0,
+  `amount` double DEFAULT '0',
   `interest` double DEFAULT NULL,
   `interest_rate` double DEFAULT NULL,
-  `disburse` int(5) NOT NULL DEFAULT 0 COMMENT '0=not, 1=yes',
+  `disburse` int(5) NOT NULL DEFAULT '0' COMMENT '0=not, 1=yes',
   `disburse_date` date NOT NULL,
-  `paid_back` tinyint(4) NOT NULL DEFAULT 0 COMMENT '0=no, 1=yes',
-  `cart` int(11) DEFAULT 0,
-  `scheduled` tinyint(4) NOT NULL DEFAULT 0 COMMENT '0=not scheduled, 1=scheduled',
+  `paid_back` tinyint(4) NOT NULL DEFAULT '0' COMMENT '0=no, 1=yes',
+  `cart` int(11) DEFAULT '0',
+  `scheduled` tinyint(4) NOT NULL DEFAULT '0' COMMENT '0=not scheduled, 1=scheduled',
   `created_at` datetime DEFAULT NULL,
-  `encumbrance_amount` double DEFAULT 0
+  `encumbrance_amount` double DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -873,11 +887,11 @@ INSERT INTO `loans` (`loan_id`, `staff_id`, `loan_app_id`, `loan_type`, `amount`
 
 CREATE TABLE `loan_applications` (
   `loan_app_id` int(11) NOT NULL,
-  `staff_id` text DEFAULT NULL,
+  `staff_id` text,
   `name` varchar(50) DEFAULT NULL,
   `duration` int(11) DEFAULT NULL,
-  `amount` double DEFAULT 0,
-  `loan_terms` text DEFAULT NULL,
+  `amount` double DEFAULT '0',
+  `loan_terms` text,
   `guarantor` int(11) DEFAULT NULL,
   `guarantor_2` int(191) DEFAULT NULL,
   `loan_type` int(191) DEFAULT NULL,
@@ -885,25 +899,28 @@ CREATE TABLE `loan_applications` (
   `verify_date` datetime DEFAULT NULL,
   `approved_by` int(11) DEFAULT NULL,
   `approve_date` datetime DEFAULT NULL,
-  `verify` int(11) DEFAULT 0,
-  `approve` int(11) DEFAULT 0,
+  `verify` int(11) DEFAULT '0',
+  `approve` int(11) DEFAULT '0',
   `applied_date` datetime DEFAULT NULL,
   `applied_by` int(11) DEFAULT NULL,
-  `verify_comment` text DEFAULT NULL,
-  `approve_comment` text DEFAULT NULL,
-  `decline_comment` text DEFAULT NULL,
-  `unverify_comment` text DEFAULT NULL,
-  `encumbrance_amount` double DEFAULT 0,
-  `attachment` text DEFAULT NULL
+  `verify_comment` text,
+  `approve_comment` text,
+  `decline_comment` text,
+  `unverify_comment` text,
+  `encumbrance_amount` double DEFAULT '0',
+  `attachment` text,
+  `disapproved_by` text,
+  `date_disapproved` datetime DEFAULT NULL,
+  `disapproved` int(11) DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `loan_applications`
 --
 
-INSERT INTO `loan_applications` (`loan_app_id`, `staff_id`, `name`, `duration`, `amount`, `loan_terms`, `guarantor`, `guarantor_2`, `loan_type`, `verified_by`, `verify_date`, `approved_by`, `approve_date`, `verify`, `approve`, `applied_date`, `applied_by`, `verify_comment`, `approve_comment`, `decline_comment`, `unverify_comment`, `encumbrance_amount`, `attachment`) VALUES
-(1, '12345', ' Oki-Peter Ejiroghene', 5, 500000, NULL, 0, 0, 1, 0, '2021-07-12 15:41:52', 0, '2021-07-12 15:42:50', 1, 1, '2021-07-12 15:37:13', 0, '', '', NULL, NULL, 0, '1626100633_8a0dc4233e84b88f19e6.pdf'),
-(2, 'eng1303449', '  Jason', 3, 1800000, NULL, 12345, 0, 2, 0, '2021-07-12 15:56:50', 0, '2021-07-12 16:13:11', 1, 1, '2021-07-12 15:56:39', 0, '', '', NULL, NULL, 0, '1626101799_827a9cc6267fdbcbd351.pdf');
+INSERT INTO `loan_applications` (`loan_app_id`, `staff_id`, `name`, `duration`, `amount`, `loan_terms`, `guarantor`, `guarantor_2`, `loan_type`, `verified_by`, `verify_date`, `approved_by`, `approve_date`, `verify`, `approve`, `applied_date`, `applied_by`, `verify_comment`, `approve_comment`, `decline_comment`, `unverify_comment`, `encumbrance_amount`, `attachment`, `disapproved_by`, `date_disapproved`, `disapproved`) VALUES
+(1, '12345', ' Oki-Peter Ejiroghene', 5, 500000, NULL, 0, 0, 1, 0, '2021-07-12 15:41:52', 0, '2021-07-12 15:42:50', 1, 1, '2021-07-12 15:37:13', 0, '', '', NULL, NULL, 0, '1626100633_8a0dc4233e84b88f19e6.pdf', NULL, NULL, 0),
+(2, 'eng1303449', '  Jason', 3, 1800000, NULL, 12345, 0, 2, 0, '2021-07-12 15:56:50', 0, '2021-07-12 16:13:11', 1, 1, '2021-07-12 15:56:39', 0, '', '', NULL, NULL, 0, '1626101799_827a9cc6267fdbcbd351.pdf', NULL, NULL, 0);
 
 -- --------------------------------------------------------
 
@@ -914,10 +931,10 @@ INSERT INTO `loan_applications` (`loan_app_id`, `staff_id`, `name`, `duration`, 
 CREATE TABLE `loan_exceptions` (
   `loan_exception_id` int(11) NOT NULL,
   `loan_exception_staff_id` text NOT NULL,
-  `loan_exception_staff_name` text DEFAULT NULL,
+  `loan_exception_staff_name` text,
   `loan_exception_transaction_date` date NOT NULL,
-  `loan_exception_month` text DEFAULT NULL,
-  `loan_exception_year` text DEFAULT NULL,
+  `loan_exception_month` text,
+  `loan_exception_year` text,
   `loan_exception_amount` text NOT NULL,
   `loan_exception_ref_code` text NOT NULL,
   `loan_exception_reason` text NOT NULL,
@@ -1021,24 +1038,24 @@ INSERT INTO `loan_repayments` (`lr_id`, `lr_loan_id`, `lr_month`, `lr_year`, `lr
 
 CREATE TABLE `loan_setups` (
   `loan_setup_id` int(11) NOT NULL,
-  `loan_description` text DEFAULT NULL,
-  `age_qualification` int(11) DEFAULT 1,
-  `psr` int(11) DEFAULT 0 COMMENT '0=no,1=yes',
-  `psr_value` double DEFAULT 0,
-  `min_credit_limit` double DEFAULT 0,
-  `max_credit_limit` double DEFAULT 0,
-  `max_repayment_periods` int(11) DEFAULT 1,
-  `ls_interest_rate` text DEFAULT NULL,
+  `loan_description` text,
+  `age_qualification` int(11) DEFAULT '1',
+  `psr` int(11) DEFAULT '0' COMMENT '0=no,1=yes',
+  `psr_value` double DEFAULT '0',
+  `min_credit_limit` double DEFAULT '0',
+  `max_credit_limit` double DEFAULT '0',
+  `max_repayment_periods` int(11) DEFAULT '1',
+  `ls_interest_rate` text,
   `interest_method` int(11) DEFAULT NULL COMMENT '1=Upfront, 2=reducing balance, 3=targetted',
-  `interest_charge_type` tinyint(4) DEFAULT 1 COMMENT '1=flat,2=monthly,3=yearly',
-  `commitment` int(11) NOT NULL DEFAULT 0 COMMENT '0=no, 1=yes',
-  `commitment_value` double NOT NULL DEFAULT 0,
+  `interest_charge_type` tinyint(4) DEFAULT '1' COMMENT '1=flat,2=monthly,3=yearly',
+  `commitment` int(11) NOT NULL DEFAULT '0' COMMENT '0=no, 1=yes',
+  `commitment_value` double NOT NULL DEFAULT '0',
   `loan_gl_account_no` int(11) DEFAULT NULL,
   `loan_unearned_int_gl_account_no` int(11) DEFAULT NULL,
   `loan_int_income_gl_account_no` int(11) DEFAULT NULL,
-  `loan_terms` text DEFAULT NULL,
-  `status` int(5) NOT NULL DEFAULT 0 COMMENT '0=blocked, 1=active',
-  `payable` int(5) NOT NULL DEFAULT 1 COMMENT '1=cash, 2=vendor',
+  `loan_terms` text,
+  `status` int(5) NOT NULL DEFAULT '0' COMMENT '0=blocked, 1=active',
+  `payable` int(5) NOT NULL DEFAULT '1' COMMENT '1=cash, 2=vendor',
   `created_date` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -1082,8 +1099,8 @@ INSERT INTO `locations` (`location_id`, `location_name`) VALUES
 
 CREATE TABLE `mails` (
   `mail_id` int(11) NOT NULL,
-  `subject` text DEFAULT NULL,
-  `body` text DEFAULT NULL,
+  `subject` text,
+  `body` text,
   `sent_by` int(11) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -1226,7 +1243,10 @@ INSERT INTO `migrations` (`id`, `version`, `class`, `group`, `namespace`, `time`
 (86, '2021-03-18-071150', 'App\\Database\\Migrations\\Reconciliationrefno', 'default', 'App', 1616051611, 59),
 (87, '2021-03-18-160923', 'App\\Database\\Migrations\\Reconciliationmimp', 'default', 'App', 1616083905, 60),
 (88, '2021-03-19-083733', 'App\\Database\\Migrations\\Addencumbrancefield', 'default', 'App', 1616510078, 61),
-(89, '2021-03-19-133346', 'App\\Database\\Migrations\\Addencumbrancefieldloanapp', 'default', 'App', 1616510078, 61);
+(89, '2021-03-19-133346', 'App\\Database\\Migrations\\Addencumbrancefieldloanapp', 'default', 'App', 1616510078, 61),
+(90, '2021-04-01-111818', 'App\\Database\\Migrations\\Addfieldstoloanapplicationtable', 'default', 'App', 1655388990, 62),
+(91, '2021-04-14-120148', 'App\\Database\\Migrations\\Glupdatew', 'default', 'App', 1655389038, 63),
+(92, '2022-06-16-140240', 'App\\Database\\Migrations\\CooperatorUpdateNextOfKin', 'default', 'App', 1655389038, 63);
 
 -- --------------------------------------------------------
 
@@ -1241,7 +1261,7 @@ CREATE TABLE `notifications` (
   `receiver_id` int(11) NOT NULL,
   `details` int(11) NOT NULL,
   `seen` int(11) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -1275,7 +1295,7 @@ CREATE TABLE `payable_details` (
   `payable_master_id` int(11) DEFAULT NULL,
   `schedule_id` int(11) DEFAULT NULL,
   `app_id` int(11) DEFAULT NULL,
-  `payable_no` text DEFAULT NULL,
+  `payable_no` text,
   `type` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -1289,8 +1309,8 @@ CREATE TABLE `payable_masters` (
   `payable_master_id` int(11) NOT NULL,
   `schedule_id` int(11) DEFAULT NULL,
   `bank_id` int(11) DEFAULT NULL,
-  `amount` double DEFAULT 0,
-  `receivers` text DEFAULT NULL,
+  `amount` double DEFAULT '0',
+  `receivers` text,
   `payable_date` datetime DEFAULT NULL,
   `created_date` datetime DEFAULT NULL,
   `created_by` int(11) DEFAULT NULL,
@@ -1298,9 +1318,9 @@ CREATE TABLE `payable_masters` (
   `verified_by` int(11) DEFAULT NULL,
   `approve_date` datetime DEFAULT NULL,
   `approve_by` int(11) DEFAULT NULL,
-  `returned` int(11) DEFAULT 0 COMMENT '0=off,1=on',
+  `returned` int(11) DEFAULT '0' COMMENT '0=off,1=on',
   `returned_by` int(11) DEFAULT NULL,
-  `reason` text DEFAULT NULL,
+  `reason` text,
   `payable_no` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -1316,9 +1336,9 @@ CREATE TABLE `payments` (
   `payment_amount` double NOT NULL,
   `payment_contribution_type_id` int(11) NOT NULL,
   `payment_type` int(11) NOT NULL,
-  `payment_narration` text DEFAULT NULL,
+  `payment_narration` text,
   `payment_date` date NOT NULL,
-  `payment_reference_code` text DEFAULT NULL,
+  `payment_reference_code` text,
   `payment_action_by` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -1428,15 +1448,15 @@ INSERT INTO `payroll_groups` (`pg_id`, `pg_name`, `pg_gl_code`) VALUES
 
 CREATE TABLE `policy_configs` (
   `policy_config_id` int(11) NOT NULL,
-  `company_name` text DEFAULT NULL,
-  `logo` text DEFAULT NULL,
-  `signature_1` text DEFAULT NULL,
-  `signature_2` text DEFAULT NULL,
-  `signature_3` text DEFAULT NULL,
-  `minimum_saving` double NOT NULL DEFAULT 0,
-  `registration_fee` double NOT NULL DEFAULT 0,
-  `savings_interest_rate` double NOT NULL DEFAULT 0,
-  `savings_withdrawal_charge` double NOT NULL DEFAULT 0,
+  `company_name` text,
+  `logo` text,
+  `signature_1` text,
+  `signature_2` text,
+  `signature_3` text,
+  `minimum_saving` double NOT NULL DEFAULT '0',
+  `registration_fee` double NOT NULL DEFAULT '0',
+  `savings_interest_rate` double NOT NULL DEFAULT '0',
+  `savings_withdrawal_charge` double NOT NULL DEFAULT '0',
   `max_withdrawal_amount` double DEFAULT NULL,
   `contribution_payroll_dr` int(11) DEFAULT NULL,
   `contribution_payroll_cr` int(11) DEFAULT NULL,
@@ -1464,7 +1484,7 @@ INSERT INTO `policy_configs` (`policy_config_id`, `company_name`, `logo`, `signa
 
 CREATE TABLE `receipt_detail` (
   `rd_id` int(11) NOT NULL,
-  `rd_rm_id` text DEFAULT NULL,
+  `rd_rm_id` text,
   `rd_amount` double DEFAULT NULL,
   `rd_type` int(11) DEFAULT NULL,
   `rd_target` int(11) DEFAULT NULL
@@ -1488,23 +1508,23 @@ INSERT INTO `receipt_detail` (`rd_id`, `rd_rm_id`, `rd_amount`, `rd_type`, `rd_t
 
 CREATE TABLE `receipt_master` (
   `rm_id` int(11) NOT NULL,
-  `rm_staff_id` text DEFAULT NULL,
+  `rm_staff_id` text,
   `rm_date` date DEFAULT NULL,
   `rm_amount` double DEFAULT NULL,
   `rm_payment_method` int(11) DEFAULT NULL,
   `rm_coop_bank` int(11) NOT NULL,
   `rm_status` int(11) DEFAULT NULL,
-  `rm_verify_comment` text DEFAULT NULL,
-  `rm_verify_by` text DEFAULT NULL,
+  `rm_verify_comment` text,
+  `rm_verify_by` text,
   `rm_verify_date` date DEFAULT NULL,
-  `rm_approve_comment` text DEFAULT NULL,
-  `rm_approve_by` text DEFAULT NULL,
+  `rm_approve_comment` text,
+  `rm_approve_by` text,
   `rm_approve_date` date DEFAULT NULL,
-  `rm_discard_comment` text DEFAULT NULL,
-  `rm_discard_by` text DEFAULT NULL,
+  `rm_discard_comment` text,
+  `rm_discard_by` text,
   `rm_discard_date` date DEFAULT NULL,
   `rm_a_date` date DEFAULT NULL,
-  `rm_by` text DEFAULT NULL
+  `rm_by` text
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -1523,29 +1543,29 @@ INSERT INTO `receipt_master` (`rm_id`, `rm_staff_id`, `rm_date`, `rm_amount`, `r
 
 CREATE TABLE `reconciliation` (
   `re_id` int(11) NOT NULL,
-  `re_staff_id` text DEFAULT NULL,
-  `re_type` text DEFAULT NULL COMMENT '1=savings, 2=loan',
-  `re_narration` text DEFAULT NULL,
-  `re_source` text DEFAULT NULL,
-  `re_destination` text DEFAULT NULL,
+  `re_staff_id` text,
+  `re_type` text COMMENT '1=savings, 2=loan',
+  `re_narration` text,
+  `re_source` text,
+  `re_destination` text,
   `re_amount` float DEFAULT NULL,
   `re_mpr` float NOT NULL,
   `re_mi` float NOT NULL,
   `re_dctype` int(11) DEFAULT NULL COMMENT '1=credit to source, 2=debit to source',
   `re_transaction_date` date DEFAULT NULL,
-  `re_ref_no` text DEFAULT NULL,
-  `re_by` text DEFAULT NULL,
+  `re_ref_no` text,
+  `re_by` text,
   `re_date` date DEFAULT NULL,
-  `re_verify_by` text DEFAULT NULL,
+  `re_verify_by` text,
   `re_verify_date` date DEFAULT NULL,
-  `re_verify_comment` text DEFAULT NULL,
-  `re_approved_by` text DEFAULT NULL,
-  `re_approved_date` text DEFAULT NULL,
-  `re_approved_comment` text DEFAULT NULL,
-  `re_discard_by` text DEFAULT NULL,
-  `re_discard_comment` text DEFAULT NULL,
+  `re_verify_comment` text,
+  `re_approved_by` text,
+  `re_approved_date` text,
+  `re_approved_comment` text,
+  `re_discard_by` text,
+  `re_discard_comment` text,
   `re_discard_date` date NOT NULL,
-  `re_status` int(11) DEFAULT 0 COMMENT '0=pending, 1=verified 2=approved'
+  `re_status` int(11) DEFAULT '0' COMMENT '0=pending, 1=verified 2=approved'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -1564,20 +1584,20 @@ INSERT INTO `reconciliation` (`re_id`, `re_staff_id`, `re_type`, `re_narration`,
 
 CREATE TABLE `saving_variations` (
   `saving_variation_id` int(11) NOT NULL,
-  `sv_staff_id` text DEFAULT NULL,
-  `ct_type_id` text DEFAULT NULL,
-  `sv_month` text DEFAULT NULL,
-  `sv_year` text DEFAULT NULL,
+  `sv_staff_id` text,
+  `ct_type_id` text,
+  `sv_month` text,
+  `sv_year` text,
   `sv_status` int(11) DEFAULT NULL,
-  `sv_applied_by` text DEFAULT NULL,
+  `sv_applied_by` text,
   `sv_date_verified` date DEFAULT NULL,
-  `sv_verified_by` text DEFAULT NULL,
-  `sv_approved_by` text DEFAULT NULL,
+  `sv_verified_by` text,
+  `sv_approved_by` text,
   `sv_date_approved` date DEFAULT NULL,
-  `sv_is_active` int(11) DEFAULT 0 COMMENT '0=inactive,1=active',
-  `sv_discard_by` text DEFAULT NULL,
+  `sv_is_active` int(11) DEFAULT '0' COMMENT '0=inactive,1=active',
+  `sv_discard_by` text,
   `sv_discard_date` date DEFAULT NULL,
-  `sv_amount` double DEFAULT 0
+  `sv_amount` double DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -1599,13 +1619,13 @@ CREATE TABLE `schedule_masters` (
   `creation_date` datetime DEFAULT NULL,
   `amount` double NOT NULL,
   `bank_id` int(11) DEFAULT NULL,
-  `verified` int(11) NOT NULL DEFAULT 0,
-  `verified_by` text DEFAULT NULL,
+  `verified` int(11) NOT NULL DEFAULT '0',
+  `verified_by` text,
   `date_verified` datetime DEFAULT NULL,
-  `approved` int(11) NOT NULL DEFAULT 0,
-  `approved_by` text DEFAULT NULL,
+  `approved` int(11) NOT NULL DEFAULT '0',
+  `approved_by` text,
   `approved_date` date DEFAULT NULL,
-  `attachment` text DEFAULT NULL
+  `attachment` text
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -1626,8 +1646,8 @@ INSERT INTO `schedule_masters` (`schedule_master_id`, `payable_date`, `creation_
 CREATE TABLE `schedule_master_details` (
   `schedule_master_detail_id` int(11) NOT NULL,
   `schedule_master_id` bigint(20) DEFAULT NULL,
-  `coop_id` text DEFAULT NULL,
-  `amount` double DEFAULT 0,
+  `coop_id` text,
+  `amount` double DEFAULT '0',
   `loan_type` int(11) DEFAULT NULL,
   `loan_id` int(11) DEFAULT NULL,
   `transaction_type` int(5) DEFAULT NULL
@@ -1655,7 +1675,7 @@ INSERT INTO `schedule_master_details` (`schedule_master_detail_id`, `schedule_ma
 CREATE TABLE `states` (
   `state_id` bigint(20) NOT NULL,
   `state_name` text NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -1711,12 +1731,12 @@ INSERT INTO `states` (`state_id`, `state_name`, `created_at`) VALUES
 CREATE TABLE `temp_loan_repayment` (
   `temp_lr_id` int(11) NOT NULL,
   `temp_lr_staff_id` text NOT NULL,
-  `temp_lr_staff_name` text DEFAULT NULL,
+  `temp_lr_staff_name` text,
   `temp_lr_transaction_date` date NOT NULL,
   `temp_lr_narration` text NOT NULL,
   `temp_lr_amount` double DEFAULT NULL,
-  `temp_lr_month` text DEFAULT NULL,
-  `temp_lr_year` text DEFAULT NULL,
+  `temp_lr_month` text,
+  `temp_lr_year` text,
   `temp_lr_drcrtype` int(11) NOT NULL,
   `temp_lr_loan_id` int(11) NOT NULL,
   `temp_lr_ref_code` text NOT NULL,
@@ -1740,7 +1760,7 @@ CREATE TABLE `temp_payment_details` (
   `temp_pd_pg_id` int(11) DEFAULT NULL,
   `temp_pd_ref_code` text NOT NULL,
   `temp_pd_status` int(11) NOT NULL,
-  `temp_pd_staff_name` text DEFAULT NULL,
+  `temp_pd_staff_name` text,
   `temp_pd_month` int(11) NOT NULL,
   `temp_pd_year` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -1755,22 +1775,22 @@ CREATE TABLE `third_party_payment_entries` (
   `third_party_payment_entry_id` int(11) NOT NULL,
   `entry_payment_date` date DEFAULT NULL,
   `entry_bank_id` int(11) DEFAULT NULL,
-  `entry_amount` double DEFAULT 0,
+  `entry_amount` double DEFAULT '0',
   `entry_gl_account_no` int(11) DEFAULT NULL,
-  `entry_reference_no` text DEFAULT NULL,
-  `entry_narration` text DEFAULT NULL,
-  `entry_payee_name` text DEFAULT NULL,
+  `entry_reference_no` text,
+  `entry_narration` text,
+  `entry_payee_name` text,
   `entry_payee_bank` int(11) DEFAULT NULL,
-  `entry_bank_account_no` text DEFAULT NULL,
-  `entry_sort_code` text DEFAULT NULL,
-  `entry_approved` int(11) DEFAULT 0 COMMENT '0=not approved, 1=approved',
+  `entry_bank_account_no` text,
+  `entry_sort_code` text,
+  `entry_approved` int(11) DEFAULT '0' COMMENT '0=not approved, 1=approved',
   `entry_approved_date` date DEFAULT NULL,
   `entry_approved_by` int(11) DEFAULT NULL,
-  `entry_verified_by` text DEFAULT NULL,
-  `entry_verified` int(11) DEFAULT 0,
-  `entry_date_verified` text DEFAULT NULL,
+  `entry_verified_by` text,
+  `entry_verified` int(11) DEFAULT '0',
+  `entry_date_verified` text,
   `cart` int(11) DEFAULT NULL COMMENT '0=not,1=in cart',
-  `entry_attachment` text DEFAULT NULL
+  `entry_attachment` text
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
@@ -1793,11 +1813,11 @@ CREATE TABLE `users` (
   `first_name` varchar(26) NOT NULL,
   `last_name` varchar(26) DEFAULT NULL,
   `email` varchar(255) NOT NULL,
-  `username` text DEFAULT NULL,
+  `username` text,
   `password` varchar(191) NOT NULL,
-  `user_type` tinyint(4) NOT NULL DEFAULT 0 COMMENT '0=users, 1=admin_user',
+  `user_type` tinyint(4) NOT NULL DEFAULT '0' COMMENT '0=users, 1=admin_user',
   `user_status` int(11) NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT current_timestamp()
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -1822,10 +1842,10 @@ CREATE TABLE `withdraws` (
   `withdraw_ct_id` text NOT NULL,
   `withdraw_amount` text NOT NULL,
   `withdraw_charges` double DEFAULT NULL,
-  `withdraw_date` text DEFAULT NULL,
-  `withdraw_narration` text DEFAULT NULL,
+  `withdraw_date` text,
+  `withdraw_narration` text,
   `withdraw_status` int(11) DEFAULT NULL,
-  `withdraw_doc` text DEFAULT NULL,
+  `withdraw_doc` text,
   `withdraw_verify_by` text NOT NULL,
   `withdraw_verify_comment` text NOT NULL,
   `withdraw_verify_date` date NOT NULL,
@@ -1836,10 +1856,10 @@ CREATE TABLE `withdraws` (
   `withdraw_discarded_date` date NOT NULL,
   `withdraw_discarded_comment` text NOT NULL,
   `withdraw_disbursed_date` date DEFAULT NULL,
-  `cart` int(11) NOT NULL DEFAULT 0,
-  `paid_back` int(11) NOT NULL DEFAULT 0,
-  `disburse` int(11) NOT NULL DEFAULT 0,
-  `scheduled` int(11) NOT NULL DEFAULT 0,
+  `cart` int(11) NOT NULL DEFAULT '0',
+  `paid_back` int(11) NOT NULL DEFAULT '0',
+  `disburse` int(11) NOT NULL DEFAULT '0',
+  `scheduled` int(11) NOT NULL DEFAULT '0',
   `disburse_date` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -2185,7 +2205,7 @@ ALTER TABLE `coas`
 -- AUTO_INCREMENT for table `contribution_type`
 --
 ALTER TABLE `contribution_type`
-  MODIFY `contribution_type_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `contribution_type_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `cooperators`
@@ -2317,7 +2337,7 @@ ALTER TABLE `mail_receivers`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=90;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=93;
 
 --
 -- AUTO_INCREMENT for table `notifications`
@@ -2413,13 +2433,13 @@ ALTER TABLE `states`
 -- AUTO_INCREMENT for table `temp_loan_repayment`
 --
 ALTER TABLE `temp_loan_repayment`
-  MODIFY `temp_lr_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `temp_lr_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `temp_payment_details`
 --
 ALTER TABLE `temp_payment_details`
-  MODIFY `temp_pd_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `temp_pd_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `third_party_payment_entries`
